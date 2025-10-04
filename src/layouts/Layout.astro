@@ -1,0 +1,40 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+}
+
+const { title, description = "TheRush - Latest Tech News Summarized", bodyClass } = Astro.props;
+---
+
+<style is:global>
+  @import '../styles/main.css';
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/TheRush.png" />
+    <link rel="preload" as="image" href="/TheRush.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+      // Lazy load fonts after page load to improve performance
+      window.addEventListener('load', function() {
+        const fontLink = document.createElement('link');
+        fontLink.rel = 'stylesheet';
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap';
+        document.head.appendChild(fontLink);
+      });
+    </script>
+  </head>
+  <body class={bodyClass} lang="en">
+    <slot />
+  </body>
+</html>

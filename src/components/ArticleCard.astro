@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  article: CollectionEntry<'news'>;
+  featured?: boolean;
+}
+
+const { article, featured = false } = Astro.props;
+const { title, summary, publishDate, tags, readTime, priority } = article.data;
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC'
+  });
+};
+
+// Check if article is within last 2 days
+const isRecentArticle = (publishDate: Date) => {
+  const now = new Date();
+  const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
+  return publishDate >= twoDaysAgo;
+};
+---
+
+<article class={`article-card ${featured ? 'featured' : ''} group`}>
+  <div class="article-content">
+    {priority === 'high' && isRecentArticle(publishDate) && (
+      <div class="priority-badge">
+        <span class="priority-label">Breaking</span>
+      </div>
+    )}
+    
+    <div class="article-meta">
+      <time class="publish-date">{formatDate(publishDate)}</time>
+      <span class="read-time">{readTime} min read</span>
+    </div>
+
+    <h2 class="article-title">
+      <a href={`/news/${article.slug}`} class="title-link">
+        {title}
+      </a>
+    </h2>
+
+    <p class="article-summary">
+      {summary}
+    </p>
+
+    <div class="article-footer">
+      <div class="article-tags">
+        {tags.slice(0, 3).map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="read-more">
+      <a href={`/news/${article.slug}`} class="read-more-link">
+        Read full article
+        <svg class="read-more-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
+

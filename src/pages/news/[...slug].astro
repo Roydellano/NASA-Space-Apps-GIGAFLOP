@@ -1,0 +1,189 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getSafeNewsCollection } from '../../utils/newsLoader';
+
+export async function getStaticPaths() {
+  const newsEntries = await getSafeNewsCollection();
+  return newsEntries.map((entry: CollectionEntry<'news'>) => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+const { title, summary, publishDate, tags, readTime, priority, featuredImage } = entry.data;
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC'
+  });
+};
+
+const formatTime = (date: Date) => {
+  return date.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'UTC'
+  });
+};
+
+// Check if article is within last 2 days
+const isRecentArticle = (publishDate: Date) => {
+  const now = new Date();
+  const twoDaysAgo = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000);
+  return publishDate >= twoDaysAgo;
+};
+
+// Get related articles (same tags, excluding current)
+const allNews: CollectionEntry<'news'>[] = await getSafeNewsCollection();
+const relatedArticles = allNews
+  .filter(article => 
+    article.slug !== entry.slug && 
+    article.data.tags.some((tag: string) => tags.includes(tag))
+  )
+  .slice(0, 3);
+---
+
+<Layout 
+  title={`${title} | TheRush`} 
+  description={summary}
+  bodyClass="article-page"
+>
+  <Header />
+  
+  <main class="article-main">
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="container">
+        <div class="article-header-content">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="/news" class="breadcrumb-link">News</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Article</span>
+          </nav>
+
+          <!-- Article Meta -->
+          <div class="article-meta">
+            <div class="meta-left">
+              {priority === 'high' && isRecentArticle(publishDate) && (
+                <span class="priority-badge">Breaking News</span>
+              )}
+              <div class="article-tags">
+                {tags.map((tag: string) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div class="meta-right">
+              <time class="publish-date">
+                {formatDate(publishDate)} at {formatTime(publishDate)} UTC
+              </time>
+              <span class="read-time">{readTime} min read</span>
+            </div>
+          </div>
+
+          <!-- Article Title -->
+          <h1 class="article-title">{title}</h1>
+
+          <!-- Article Summary -->
+          <p class="article-summary">{summary}</p>
+
+          <!-- Featured Image -->
+          {featuredImage && (
+            <div class="featured-image-container">
+              <img 
+                src={featuredImage} 
+                alt={title} 
+                class="featured-image"
+                loading="lazy"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-content">
+      <div class="container">
+        <div class="content-wrapper">
+          <div class="article-body">
+            <Content />
+            
+            <!-- Article Footer -->
+            <footer class="article-footer">
+              <div class="back-navigation">
+                <a href="/" class="back-link">
+                  <svg class="back-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                  </svg>
+                  Back to Homepage
+                </a>
+              </div>
+            </footer>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <!-- Related Articles -->
+            {relatedArticles.length > 0 && (
+              <div class="related-section">
+                <h3 class="related-title">Related Articles</h3>
+                <div class="related-articles">
+                  {relatedArticles.map((article) => (
+                    <a href={`/news/${article.slug}`} class="related-article">
+                      <h4 class="related-article-title">{article.data.title}</h4>
+                      <p class="related-article-summary">{article.data.summary}</p>
+                      <div class="related-article-meta">
+                        <time class="related-date">{formatDate(article.data.publishDate)}</time>
+                        <span class="related-read-time">{article.data.readTime} min</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Newsletter Signup -->
+           {/* <div class="newsletter-sidebar">
+              <h3 class="newsletter-sidebar-title">Stay Updated</h3>
+              <p class="newsletter-sidebar-text">
+                Get the latest tech news delivered to your inbox.
+              </p>
+              <form class="newsletter-sidebar-form">
+                <input 
+                  type="email" 
+                  placeholder="Coming soon" 
+                  disabled
+                  class="newsletter-sidebar-input"
+                  required
+                />
+                <button type="submit" class="newsletter-sidebar-button">
+                  Subscribe
+                </button>
+              </form>
+            </div> */}
+          </aside>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+

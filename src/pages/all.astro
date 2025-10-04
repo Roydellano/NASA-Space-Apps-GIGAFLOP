@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getSafeNewsCollection } from '../utils/newsLoader';
+
+// Get all news articles and sort by date (newest first)
+const allNews = await getSafeNewsCollection();
+const sortedNews = allNews.sort((a: any, b: any) => 
+  new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+---
+
+<Layout title="All Articles - TheRush" description="Browse all our tech news articles. Stay informed with the latest developments in technology, AI, hardware, software, and cybersecurity.">
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/" class="breadcrumb-link">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">All Articles</span>
+        </nav>
+        
+        <h1 class="page-title">
+          All <span class="text-gradient">Articles</span>
+        </h1>
+        <p class="page-description">
+          Browse our complete collection of tech news articles covering AI, hardware, software, cybersecurity, and more.
+        </p>
+        
+        <div class="page-stats">
+          <div class="stat">
+            <span class="stat-number">{sortedNews.length}</span>
+            <span class="stat-label">Total Articles</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">Updated</span>
+            <span class="stat-label">Daily</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Articles -->
+    <section class="articles-section">
+      <div class="container">
+        <div class="articles-grid">
+          {sortedNews.map((article: any) => (
+            <ArticleCard article={article} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  .breadcrumb-link {
+    color: var(--primary-600);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--primary-700);
+  }
+
+  .breadcrumb-separator {
+    color: var(--gray-400);
+  }
+
+  .breadcrumb-current {
+    color: var(--gray-700);
+    font-weight: 500;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .page-description {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-600);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .articles-section {
+    padding: 3rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .page-description {
+      font-size: 1rem;
+    }
+
+    .page-stats {
+      gap: 2rem;
+    }
+  }
+</style>

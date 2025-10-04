@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About - TheRush" description="Learn about TheRush, your source for the latest tech news, summarized and delivered fast.">
+  <Header />
+  
+  <main class="main">
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-content">
+          <h1 class="about-title">About TheRush</h1>
+          <p class="about-subtitle">
+            Your source for the latest tech news, summarized and delivered fast.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-sections">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-section">
+            <h2 class="about-section-title">Our Mission</h2>
+            <p class="about-section-text">
+              At TheRush, we believe that staying informed about technology shouldn't be overwhelming. 
+              We curate and summarize the most important tech news, helping you stay ahead of the curve 
+              without information overload.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-section-title">What We Cover</h2>
+            <div class="about-topics">
+              <div class="about-topic">
+                <h3>Artificial Intelligence</h3>
+                <p>The latest breakthroughs in AI, machine learning, and automation.</p>
+              </div>
+              <div class="about-topic">
+                <h3>Hardware</h3>
+                <p>New devices, processors, and hardware innovations shaping the future.</p>
+              </div>
+              <div class="about-topic">
+                <h3>Software</h3>
+                <p>Software updates, new platforms, and development tools that matter.</p>
+              </div>
+              <div class="about-topic">
+                <h3>Cybersecurity</h3>
+                <p>Security threats, vulnerabilities, and protection strategies.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-section-title">Why TheRush?</h2>
+            <ul class="about-features">
+              <li><strong>Curated Content:</strong> We filter through the noise to bring you what matters</li>
+              <li><strong>Quick AI Summaries:</strong> Get the key points without lengthy articles</li>
+              <li><strong>Fast Loading:</strong> Optimized for speed and mobile devices</li>
+              <li><strong>Focused Categories:</strong> Find exactly what you're looking for</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h2 class="about-section-title">Contact</h2>
+            <p class="about-section-text">
+              Have a tip, feedback, or suggestion? We'd love to hear from you. 
+              TheRush is continuously evolving to better serve the tech community.
+              You can contact us at <a href="mailto:support@therush.news">support@therush.news</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-darker) 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .about-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .about-sections {
+    padding: 4rem 0;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-section {
+    text-align: left;
+  }
+
+  .about-section-title {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  .about-section-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1.1rem;
+  }
+
+  .about-topics {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .about-topic {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+  }
+
+  .about-topic h3 {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-topic p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .about-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+  }
+
+  .about-features li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-title {
+      font-size: 2.25rem;
+    }
+    
+    .about-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .about-hero {
+      padding: 3rem 0;
+    }
+    
+    .about-sections {
+      padding: 3rem 0;
+    }
+    
+    .about-grid {
+      gap: 2rem;
+    }
+  }
+</style>
