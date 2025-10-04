@@ -10,10 +10,10 @@ export async function getStaticPaths() {
   
   // Extract all unique tags from articles and create category mappings
   const categoryMappings: Record<string, string[]> = {
-    'ai': ['AI', 'Machine Learning', 'Artificial Intelligence'],
-    'hardware': ['Hardware', 'Quantum Computing', 'Processors'],
-    'software': ['Software', 'Programming', 'Development'],
-    'cybersecurity': ['Cybersecurity', 'Security', 'Privacy', 'Encryption']
+    'human-physiology': ['Human Physiology', 'Space Medicine', 'Bone Density', 'Muscle Atrophy', 'Cardiovascular'],
+    'microgravity': ['Microgravity', 'Cell Biology', 'Gene Expression', 'Molecular Biology'],
+    'radiation-biology': ['Radiation Biology', 'DNA Damage', 'Radiation Exposure'],
+    'plant-biology': ['Plant Biology', 'Closed Ecosystems', 'Life Support Systems', 'Astrobiology']
   };
   
   const paths = Object.keys(categoryMappings).map(category => {
@@ -29,11 +29,19 @@ export async function getStaticPaths() {
       new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
     );
     
+    // Format category name for display
+    const displayNames: Record<string, string> = {
+      'human-physiology': 'Human Physiology',
+      'microgravity': 'Microgravity',
+      'radiation-biology': 'Radiation Biology',
+      'plant-biology': 'Plant Biology'
+    };
+    
     return {
       params: { category },
       props: { 
         articles: categoryArticles,
-        categoryName: category === 'ai' ? 'AI' : category.charAt(0).toUpperCase() + category.slice(1),
+        categoryName: displayNames[category] || category,
         categoryTags: relevantTags
       }
     };
@@ -51,16 +59,16 @@ const regularArticles = articles.filter(article => article?.slug !== featuredArt
 
 // Category descriptions
 const categoryDescriptions: Record<string, string> = {
-  'ai': 'Discover the latest breakthroughs in artificial intelligence, machine learning, and emerging AI technologies shaping our future.',
-  'hardware': 'Stay updated with cutting-edge hardware innovations, from quantum processors to next-generation computing devices.',
-  'software': 'Explore the newest software developments, programming frameworks, and digital solutions transforming industries.',
-  'cybersecurity': 'Get informed about the latest security threats, privacy developments, and cybersecurity innovations protecting our digital world.'
+  'human-physiology': 'Explore NASA research on astronaut health, bone density, muscle atrophy, cardiovascular effects, and space medicine critical for long-duration missions.',
+  'microgravity': 'Discover how microgravity affects cellular responses, gene expression, and biological systems in space environments.',
+  'radiation-biology': 'Understand DNA damage, repair mechanisms, and long-duration radiation exposure effects on living organisms in space.',
+  'plant-biology': 'Learn about closed ecosystems, life support systems, and sustainable food production for future space missions.'
 };
 
-const description = categoryDescriptions[category as string] || `Latest ${categoryName} news and updates from TheRush.`;
+const description = categoryDescriptions[category as string] || `Latest ${categoryName} research from NASA's bioscience publications.`;
 ---
 
-<Layout title={`${categoryName} News - TheRush`} description={description}>
+<Layout title={`${categoryName} Research - BioNauta`} description={description}>
   <Header />
   
   <main>
@@ -76,18 +84,18 @@ const description = categoryDescriptions[category as string] || `Latest ${catego
           </nav>
           
           <h1 class="category-title">
-            <span class="text-gradient">{categoryName}</span> News
+            <span class="text-gradient">{categoryName}</span> Research
           </h1>
           <p class="category-description">{description}</p>
           
           <div class="category-stats">
             <div class="stat">
               <span class="stat-number">{articles.length}</span>
-              <span class="stat-label">Articles</span>
+              <span class="stat-label">Publications</span>
             </div>
             <div class="stat">
-              <span class="stat-number">Latest</span>
-              <span class="stat-label">Updates</span>
+              <span class="stat-number">NASA</span>
+              <span class="stat-label">Repository</span>
             </div>
           </div>
           </div>
@@ -100,7 +108,7 @@ const description = categoryDescriptions[category as string] || `Latest ${catego
       <section class="featured-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Featured {categoryName} Story</h2>
+            <h2 class="section-title">Featured {categoryName} Study</h2>
             <div class="category-badge">{categoryName}</div>
           </div>
           <ArticleCard article={featuredArticle} featured={true} />
@@ -113,8 +121,8 @@ const description = categoryDescriptions[category as string] || `Latest ${catego
       <section class="articles-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">More {categoryName} Stories</h2>
-            <div class="articles-count">{regularArticles.length} articles</div>
+            <h2 class="section-title">More {categoryName} Publications</h2>
+            <div class="articles-count">{regularArticles.length} publications</div>
           </div>
           
           <div class="articles-grid">
@@ -131,13 +139,13 @@ const description = categoryDescriptions[category as string] || `Latest ${catego
       <section class="empty-state">
         <div class="container">
           <div class="empty-content">
-            <h2 class="empty-title">No {categoryName} Articles Yet</h2>
+            <h2 class="empty-title">No {categoryName} Publications Yet</h2>
             <p class="empty-description">
-              We're working on bringing you the latest {categoryName.toLowerCase()} news. 
+              We're working on summarizing more {categoryName.toLowerCase()} research from NASA's repository. 
               Check back soon for updates!
             </p>
             <a href="/" class="back-home-button">
-              ← Back to Latest News
+              ← Back to Latest Publications
             </a>
           </div>
         </div>

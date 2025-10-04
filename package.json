@@ -1,7 +1,8 @@
 {
-  "name": "radiant-ring",
+  "name": "bionauta-nasa-space-apps",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "AI-powered NASA bioscience publications explorer for Space Apps Challenge 2024",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,5 +11,13 @@
   },
   "dependencies": {
     "astro": "^5.13.7"
-  }
+  },
+  "keywords": [
+    "nasa",
+    "space-apps",
+    "bioscience",
+    "publications",
+    "space-biology",
+    "astro"
+  ]
 }

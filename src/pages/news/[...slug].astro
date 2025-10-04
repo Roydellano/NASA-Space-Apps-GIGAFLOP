@@ -56,7 +56,7 @@ const relatedArticles = allNews
 ---
 
 <Layout 
-  title={`${title} | TheRush`} 
+  title={`${title} | BioNauta`} 
   description={summary}
   bodyClass="article-page"
 >
@@ -71,7 +71,7 @@ const relatedArticles = allNews
           <nav class="breadcrumb">
             <a href="/" class="breadcrumb-link">Home</a>
             <span class="breadcrumb-separator">/</span>
-            <a href="/news" class="breadcrumb-link">News</a>
+            <a href="/all" class="breadcrumb-link">Publications</a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">Article</span>
           </nav>
@@ -80,7 +80,7 @@ const relatedArticles = allNews
           <div class="article-meta">
             <div class="meta-left">
               {priority === 'high' && isRecentArticle(publishDate) && (
-                <span class="priority-badge">Breaking News</span>
+                <span class="priority-badge">High Priority</span>
               )}
               <div class="article-tags">
                 {tags.map((tag: string) => (
@@ -142,7 +142,7 @@ const relatedArticles = allNews
             <!-- Related Articles -->
             {relatedArticles.length > 0 && (
               <div class="related-section">
-                <h3 class="related-title">Related Articles</h3>
+                <h3 class="related-title">Related Publications</h3>
                 <div class="related-articles">
                   {relatedArticles.map((article) => (
                     <a href={`/news/${article.slug}`} class="related-article">
@@ -162,7 +162,7 @@ const relatedArticles = allNews
            {/* <div class="newsletter-sidebar">
               <h3 class="newsletter-sidebar-title">Stay Updated</h3>
               <p class="newsletter-sidebar-text">
-                Get the latest tech news delivered to your inbox.
+                Get the latest NASA bioscience research updates delivered to your inbox.
               </p>
               <form class="newsletter-sidebar-form">
                 <input 
