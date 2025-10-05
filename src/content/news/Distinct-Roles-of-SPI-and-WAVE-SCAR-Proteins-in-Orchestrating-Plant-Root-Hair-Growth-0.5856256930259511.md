@@ -15,7 +15,6 @@ doi: "10.1093/plcell/koab115"
 journal: "The Plant Cell"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8364238/"
 
-```yaml
 chartData:
   type: "line"
   data:
@@ -110,7 +109,6 @@ chartData:
           display: true
           text: "Fluorescence Ratio (Tip/Sub-apex)"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

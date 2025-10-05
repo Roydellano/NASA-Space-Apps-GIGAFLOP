@@ -15,7 +15,7 @@ doi: "10.1111/tpj.12373"
 journal: "The Plant Journal"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3981873/"
 
-```yaml
+
 chartData:
   type: "bar"
   data:
@@ -88,7 +88,6 @@ chartData:
           display: true
           text: "Transcript Reduction/Increase (%)"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

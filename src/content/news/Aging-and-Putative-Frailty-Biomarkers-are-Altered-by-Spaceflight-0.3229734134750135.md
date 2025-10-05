@@ -14,8 +14,6 @@ knowledgeGaps: ["Whether spaceflight-induced frailty markers persist long-term a
 doi: "10.1038/s41598-024-57948-5"
 journal: "Scientific Reports"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11166946/"
-
-```yaml
 chartData:
   type: "line"
   data:
@@ -130,7 +128,6 @@ chartData:
           display: true
           text: "Relative Expression"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

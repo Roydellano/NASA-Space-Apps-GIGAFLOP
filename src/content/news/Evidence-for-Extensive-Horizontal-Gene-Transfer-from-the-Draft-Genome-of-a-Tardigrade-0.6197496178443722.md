@@ -14,7 +14,6 @@ knowledgeGaps: ["The true, validated extent of horizontal gene transfer in the t
 doi: "10.1073/pnas.1510461112"
 journal: "Proceedings of the National Academy of Sciences of the United States of America"
 
-```yaml
 chartData:
   type: "none"
   data:
@@ -24,7 +23,6 @@ chartData:
       - label: "Correlation"
   options:
     responsive: true
-```
 ---
 
 # Introduction

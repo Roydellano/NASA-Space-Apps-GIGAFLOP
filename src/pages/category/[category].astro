@@ -10,10 +10,17 @@ export async function getStaticPaths() {
   
   // Extract all unique tags from articles and create category mappings
   const categoryMappings: Record<string, string[]> = {
-    'human-physiology': ['Human Physiology', 'Space Medicine', 'Bone Density', 'Muscle Atrophy', 'Cardiovascular'],
-    'microgravity': ['Microgravity', 'Cell Biology', 'Gene Expression', 'Molecular Biology'],
-    'radiation-biology': ['Radiation Biology', 'DNA Damage', 'Radiation Exposure'],
-    'plant-biology': ['Plant Biology', 'Closed Ecosystems', 'Life Support Systems', 'Astrobiology']
+    'neurology': ['Neurology', 'Brain', 'Nervous System', 'Neurological', 'Neural', 'Cognitive'],
+    'cardiovascular': ['Cardiovascular', 'Heart', 'Cardiac', 'Blood', 'Circulatory', 'Vascular'],
+    'microbiology': ['Microbiology', 'Bacteria', 'Microbes', 'Microorganism', 'Pathogen', 'Infection'],
+    'technology': ['Technology', 'Equipment', 'Instrument', 'Device', 'System', 'Tool', 'Hardware'],
+    'genetics': ['Genetics', 'Gene', 'DNA', 'Genome', 'Genetic', 'Heredity', 'Mutation'],
+    'proteomics': ['Proteomics', 'Protein', 'Proteomic', 'Peptide', 'Enzyme'],
+    'respiratory': ['Respiratory', 'Lung', 'Pulmonary', 'Breathing', 'Respiration'],
+    'digestive': ['Digestive', 'Gastrointestinal', 'Liver', 'Intestine', 'Stomach', 'Metabolism'],
+    'animals': ['Animal', 'Mouse', 'Mice', 'Rat', 'Rodent', 'Mammal', 'Species'],
+    'plants': ['Plant', 'Vegetation', 'Botanical', 'Crop', 'Agriculture', 'Photosynthesis'],
+    'musculoskeletal': ['Musculoskeletal', 'Muscle', 'Bone', 'Skeletal', 'Osteo', 'Muscle Atrophy', 'Bone Density']
   };
   
   const paths = Object.keys(categoryMappings).map(category => {
@@ -31,10 +38,17 @@ export async function getStaticPaths() {
     
     // Format category name for display
     const displayNames: Record<string, string> = {
-      'human-physiology': 'Human Physiology',
-      'microgravity': 'Microgravity',
-      'radiation-biology': 'Radiation Biology',
-      'plant-biology': 'Plant Biology'
+      'neurology': 'Neurology',
+      'cardiovascular': 'Cardiovascular',
+      'microbiology': 'Microbiology',
+      'technology': 'Technology',
+      'genetics': 'Genetics',
+      'proteomics': 'Proteomics',
+      'respiratory': 'Respiratory',
+      'digestive': 'Digestive',
+      'animals': 'Animals',
+      'plants': 'Plants',
+      'musculoskeletal': 'Musculoskeletal'
     };
     
     return {
@@ -59,10 +73,17 @@ const regularArticles = articles.filter(article => article?.slug !== featuredArt
 
 // Category descriptions
 const categoryDescriptions: Record<string, string> = {
-  'human-physiology': 'Explore NASA research on astronaut health, bone density, muscle atrophy, cardiovascular effects, and space medicine critical for long-duration missions.',
-  'microgravity': 'Discover how microgravity affects cellular responses, gene expression, and biological systems in space environments.',
-  'radiation-biology': 'Understand DNA damage, repair mechanisms, and long-duration radiation exposure effects on living organisms in space.',
-  'plant-biology': 'Learn about closed ecosystems, life support systems, and sustainable food production for future space missions.'
+  'neurology': 'Explore NASA research on brain function, neural responses, cognitive effects, and nervous system adaptations in space environments.',
+  'cardiovascular': 'Discover how spaceflight affects the heart, blood circulation, and cardiovascular health in microgravity and deep space missions.',
+  'microbiology': 'Understand microbial behavior, pathogen responses, and bacterial adaptations in space environments and closed ecosystems.',
+  'technology': 'Learn about cutting-edge space technology, research instruments, life support systems, and mission-critical equipment innovations.',
+  'genetics': 'Examine DNA changes, gene expression, genetic mutations, and hereditary factors influenced by space radiation and microgravity.',
+  'proteomics': 'Study protein expression, enzyme functions, and proteomic changes in organisms exposed to spaceflight conditions.',
+  'respiratory': 'Investigate lung function, breathing patterns, and respiratory system adaptations during space missions.',
+  'digestive': 'Explore gastrointestinal health, metabolism, liver function, and nutritional challenges in space environments.',
+  'animals': 'Review animal model studies, rodent experiments, and biological research using various species in spaceflight conditions.',
+  'plants': 'Learn about plant biology, crop production, photosynthesis, and sustainable food systems for long-duration space missions.',
+  'musculoskeletal': 'Understand bone density loss, muscle atrophy, skeletal changes, and countermeasures for maintaining strength in microgravity.'
 };
 
 const description = categoryDescriptions[category as string] || `Latest ${categoryName} research from NASA's bioscience publications.`;

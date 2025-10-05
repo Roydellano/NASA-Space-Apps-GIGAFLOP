@@ -156,6 +156,7 @@ const relatedArticles = allNews
                 class="featured-image"
                 loading="lazy"
               />
+              <p class="ai-generated-legend">AI Generated</p>
             </div>
           )}
         </div>
@@ -170,7 +171,7 @@ const relatedArticles = allNews
             <Content />
             
             <!-- Chart Section -->
-            {chartData && chartData.type !== 'none' && (
+            {chartData && typeof chartData === 'object' && chartData.type && chartData.type !== 'none' && chartData.data && (
               <div class="chart-section">
                 <h2 class="chart-title">Data Visualization</h2>
                 <div class="chart-container">
@@ -187,6 +188,15 @@ const relatedArticles = allNews
                     <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                   </svg>
                   Back to Homepage
+                </a>
+              </div>
+              <div class="back-navigation">
+                <a href={`https://www.google.com/search?q=@gemini+explain ${encodeURIComponent(title)}`} class="back-link" style="color: #6366f1;" onmouseover="this.style.color='#4338ca';" onmouseout="this.style.color='#6366f1';" target="_blank">
+                  Learn more with Gemini
+                  <svg class="back-icon" viewBox="0 0 20 20" fill="currentColor" style="transform: rotate(180deg);">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                  </svg>
+                  &nbsp;
                 </a>
               </div>
             </footer>
@@ -240,18 +250,27 @@ const relatedArticles = allNews
 
   <Footer />
   
-  {chartData && chartData.type !== 'none' && (
+  {chartData && typeof chartData === 'object' && chartData.type && chartData.type !== 'none' && chartData.data && (
     <>
       <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
       <script define:vars={{ chartData }}>
         document.addEventListener('DOMContentLoaded', function() {
-          const ctx = document.getElementById('article-chart');
-          if (ctx && typeof Chart !== 'undefined') {
-            new Chart(ctx, {
-              type: chartData.type,
-              data: chartData.data,
-              options: chartData.options || {}
-            });
+          try {
+            const ctx = document.getElementById('article-chart');
+            if (ctx && typeof Chart !== 'undefined' && chartData && chartData.data) {
+              new Chart(ctx, {
+                type: chartData.type,
+                data: chartData.data,
+                options: chartData.options || {}
+              });
+            }
+          } catch (error) {
+            console.error('Error rendering chart:', error);
+            // Optionally hide the chart container on error
+            const chartSection = ctx?.closest('.chart-section');
+            if (chartSection) {
+              chartSection.style.display = 'none';
+            }
           }
         });
       </script>

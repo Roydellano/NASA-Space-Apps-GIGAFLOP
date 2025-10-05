@@ -15,7 +15,6 @@ doi: "10.1105/tpc.15.00794"
 journal: "The Plant Cell"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4826010/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -80,7 +79,6 @@ chartData:
           display: true
           text: "Relative Root Growth (%)"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

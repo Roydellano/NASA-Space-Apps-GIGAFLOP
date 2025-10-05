@@ -15,7 +15,6 @@ doi: "10.1073/pnas.1601149113"
 journal: "Proceedings of the National Academy of Sciences of the United States of America"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4896697/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -92,7 +91,6 @@ chartData:
           display: true
           text: "Percentage / Gene Count"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

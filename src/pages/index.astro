@@ -52,9 +52,59 @@ const regularArticles = sortedNews.filter((article: any) => article.slug !== fea
     </section>
 
     <!-- SpaceShip Section -->
-    <section class="spaceship-section" style="margin-top: 10rem; margin-bottom: 5rem;">
-      <div style="width: 100%; margin-top: 2rem;">
-        <img src="/Spaceship.png" alt="Spaceship" style="width: 100%; height: auto; display: block;" />
+    <section class="spaceship-section">
+      <div class="spaceship-container">
+        <!-- Background ship -->
+        <img src="/spaceship/ship.png" alt="Spaceship" class="spaceship-background" />
+        
+        <!-- Clickable Elements -->
+        <!-- Brain - Neurology -->
+        <a href="/category/neurology" class="spaceship-element brain-element" title="Neurology">
+          <img src="/spaceship/brain.png" alt="Brain - Neurology" />
+        </a>
+        
+        <!-- Digestive System - Digestive -->
+        <a href="/category/digestive" class="spaceship-element digestive-element" title="Digestive">
+          <img src="/spaceship/digestiveandliver.png" alt="Digestive System - Digestive" />
+        </a>
+        
+        <!-- Lungs - Respiratory -->
+        <a href="/category/respiratory" class="spaceship-element lungs-element" title="Respiratory">
+          <img src="/spaceship/lungs.png" alt="Lungs - Respiratory" />
+        </a>
+
+        <!-- Heart - Cardiovascular -->
+        <a href="/category/cardiovascular" class="spaceship-element heart-element" title="Cardiovascular">
+          <img src="/spaceship/heart.png" alt="Heart - Cardiovascular" />
+        </a>
+        
+        <!-- Body and Suit - Musculoskeletal -->
+        <a href="/category/musculoskeletal" class="spaceship-element body-element" title="Musculoskeletal">
+          <img src="/spaceship/bodyandsuit.png" alt="Body - Musculoskeletal" />
+        </a>
+        <div class="spaceship-element body-element2">
+          <img src="/spaceship/bodyandsuit.png" alt="Body - Musculoskeletal" />
+        </div>
+        
+        <!-- Earth and Moon - Technology -->
+        <a href="/category/technology" class="spaceship-element earth-element" title="Technology">
+          <img src="/spaceship/earthandmoon.png" alt="Earth - Technology" />
+        </a>
+        
+        <!-- Sun - Genetics -->
+        <a href="/category/genetics" class="spaceship-element sun-element" title="Genetics">
+          <img src="/spaceship/sun.png" alt="Sun - Genetics" />
+        </a>
+        
+        <!-- Rat - Animals -->
+        <a href="/category/animals" class="spaceship-element rat-element" title="Animals">
+          <img src="/spaceship/rat.png" alt="Rat - Animals" />
+        </a>
+        
+        <!-- Plant - Plants -->
+        <a href="/category/plants" class="spaceship-element plant-element" title="Plants">
+          <img src="/spaceship/plant.png" alt="Plant - Plants" />
+        </a>
       </div>
     </section>
 

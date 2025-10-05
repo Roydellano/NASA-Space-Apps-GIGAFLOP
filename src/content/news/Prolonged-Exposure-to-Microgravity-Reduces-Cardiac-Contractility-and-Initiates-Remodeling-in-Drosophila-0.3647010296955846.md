@@ -15,7 +15,6 @@ doi: "10.1016/j.celrep.2020.108445"
 journal: "Cell Reports"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7787258/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -89,7 +88,6 @@ chartData:
           font:
             size: 12
         beginAtZero: true
-```
 ---
 
 # Introduction

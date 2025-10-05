@@ -15,7 +15,6 @@ doi: "10.1038/s42003-024-06336-w"
 journal: "Communications Biology"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11127935/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -87,7 +86,6 @@ chartData:
           display: true
           text: "Survival Rate"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 

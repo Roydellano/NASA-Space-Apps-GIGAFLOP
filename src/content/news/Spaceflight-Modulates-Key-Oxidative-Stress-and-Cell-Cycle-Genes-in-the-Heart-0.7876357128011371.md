@@ -15,9 +15,8 @@ doi: "10.3390/ijms22169088"
 journal: "International Journal of Molecular Sciences"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8396460/"
 
-```yaml
 chartData:
-  type: "bar"
+  type: "none"
   data:
     labels:
       - "Nox1"
@@ -66,17 +65,6 @@ chartData:
         cornerRadius: 8
         footerMarginTop: 10
         callbacks:
-          label: function(context) {
-            let label = context.dataset.label || '';
-            if (label) {
-              label += ': ';
-            }
-            if (context.parsed.y !== null) {
-              label += context.parsed.y > 0 ? 'Up ' : 'Down ';
-              label += Math.abs(context.parsed.y).toFixed(2) + ' fold';
-            }
-            return label;
-          }
     scales:
       x:
         grid:
@@ -97,7 +85,6 @@ chartData:
           display: true
           text: "Fold Change"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

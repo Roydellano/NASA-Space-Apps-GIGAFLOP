@@ -16,7 +16,7 @@ BioNauta is a functional web application that leverages AI and content summariza
 ## 🧬 Key Features
 
 - **Smart Summaries**: AI-powered publication summaries highlighting key findings, methodology, and implications
-- **Research Categories**: Browse by Human Physiology, Microgravity Effects, Radiation Biology, Plant Biology, and more
+- **Research Categories**: Browse by Neurology, Cardiovascular, Respiratory, Digestive, Musculoskeletal, Genetics, Proteomics, Microbiology, Plants, Animals, and Technology
 - **Knowledge Gap Analysis**: Each summary identifies critical unanswered questions
 - **Mission Relevance**: Publications tagged by relevance to ISS, Artemis, Mars missions, and Gateway
 - **Consensus Tracking**: Identify areas of scientific agreement and controversy
@@ -62,12 +62,17 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🔬 Research Categories
 
-- **Human Physiology**: Astronaut health, bone density, muscle atrophy, cardiovascular effects
-- **Microgravity Effects**: Cellular response, gene expression, biological systems in space
-- **Radiation Biology**: DNA damage, repair mechanisms, long-duration exposure effects
-- **Plant Biology**: Closed ecosystems, life support systems, food production in space
-- **Cell & Molecular Biology**: Proteomics, metabolomics, tissue engineering
-- **Astrobiology**: Origin of life, extremophiles, biosignatures
+- **Neurology**: Brain function, neural responses, cognitive effects in space environments
+- **Cardiovascular**: Heart function, blood circulation, cardiovascular health in microgravity
+- **Respiratory**: Lung function, breathing patterns, respiratory system adaptations
+- **Digestive**: Gastrointestinal health, metabolism, liver function in space
+- **Musculoskeletal**: Bone density loss, muscle atrophy, skeletal changes
+- **Genetics**: DNA changes, gene expression, genetic mutations from space radiation
+- **Proteomics**: Protein expression, enzyme functions, proteomic changes
+- **Microbiology**: Microbial behavior, pathogen responses in space environments
+- **Plants**: Plant biology, crop production, sustainable food systems
+- **Animals**: Animal model studies, rodent experiments in spaceflight conditions
+- **Technology**: Space technology, research instruments, life support systems
 
 ## 🛠️ Built With
 

@@ -15,7 +15,6 @@ doi: "10.3390/ijms21176385"
 journal: "International Journal of Molecular Sciences"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7503278/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -96,7 +95,6 @@ chartData:
           display: true
           text: "Reaction Time (seconds)"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

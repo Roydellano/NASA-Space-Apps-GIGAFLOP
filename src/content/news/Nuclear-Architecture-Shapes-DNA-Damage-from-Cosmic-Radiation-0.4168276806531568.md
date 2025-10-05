@@ -15,7 +15,6 @@ doi: "10.1038/s41598-024-51756-7"
 journal: "Scientific Reports"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10789781/"
 
-```yaml
 chartData:
   type: "line"
   data:
@@ -103,7 +102,6 @@ chartData:
           display: true
           text: "Average Log Fold Change (LogFC)"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

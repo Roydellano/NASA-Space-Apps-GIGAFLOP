@@ -16,7 +16,7 @@ journal: "Computational and Structural Biotechnology Journal"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8099722/"
 
 chartData:
-  type: "bar"
+  type: "none"
   data:
     labels:
       - "Faecalibacterium prausnitzii"
@@ -78,11 +78,6 @@ chartData:
           size: 15
           weight: "bold"
         callbacks:
-          label: (context) => {
-            const label = context.dataset.label || "Value";
-            const value = context.parsed.y;
-            return value > 0 ? `${label}: +${value.toFixed(2)}` : `${label}: ${value.toFixed(2)}`;
-          }
     scales:
       x:
         grid:

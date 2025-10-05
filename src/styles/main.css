@@ -1511,6 +1511,7 @@ a:hover {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  position: relative;
 }
 
 .featured-image {
@@ -1524,6 +1525,23 @@ a:hover {
 
 .featured-image:hover {
   transform: scale(1.02);
+}
+
+.ai-generated-legend {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  color: white;
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .author-avatar {
@@ -2115,5 +2133,264 @@ body,
   
   .chart-title {
     font-size: 1.25rem;
+  }
+}
+
+/* Spaceship Interactive Section */
+.spaceship-section {
+  margin: 10rem 0 5rem;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.spaceship-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.spaceship-background {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.spaceship-element {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.3));
+}
+
+.spaceship-element:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.8)) brightness(1.2);
+  z-index: 10;
+}
+
+.spaceship-element img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Position each element - these will need to be adjusted based on your ship.png layout */
+.brain-element {
+  top: 21%;
+  left: 49%;
+  width: 6%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.heart-element {
+  top: 39%;
+  left: 50%;
+  width: 6%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+.lungs-element {
+  top: 36%;
+  left: 48%;
+  width: 8%;
+  animation: float 3.2s ease-in-out infinite 0.3s;
+}
+
+.digestive-element {
+  top: 40%;
+  left: 48%;
+  width: 8%;
+  animation: float 3.8s ease-in-out infinite 0.7s;
+}
+
+.body-element {
+  top: 20%;
+  left: 32%;
+  width: 14%;
+  animation: float 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.body-element2 {
+  top: 20%;
+  left: 45%;
+  width: 14%;
+  animation: float 4s ease-in-out infinite;
+  z-index: 1;
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.body-element2:hover {
+  transform: none;
+  filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.3));
+}
+
+.body-element2::after {
+  display: none;
+}
+
+.earth-element {
+  top: 26.7%;
+  left: 12.1%;
+  width: 15%;
+}
+
+.sun-element {
+  top: 6.6%;
+  right: 10%;
+  width: 18%;
+}
+
+.rat-element {
+  top: 55%;
+  right: 20%;
+  width: 16%;
+  animation: float 3.3s ease-in-out infinite 0.4s;
+}
+
+.plant-element {
+  bottom: 15%;
+  left: 18%;
+  width: 17%;
+  animation: float 3.6s ease-in-out infinite 0.6s;
+}
+
+/* Floating animation for organs */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Orbit animation for planets */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(5px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(5px) rotate(-360deg);
+  }
+}
+
+/* Rotate and glow for sun */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(251, 191, 36, 1));
+  }
+}
+
+/* Hover effects with category hints */
+.spaceship-element::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
+  z-index: 100;
+}
+
+.spaceship-element:hover::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .spaceship-section {
+    margin: 7rem 0 4rem;
+  }
+  
+  .brain-element,
+  .heart-element,
+  .lungs-element,
+  .digestive-element,
+  .body-element {
+    width: 15%;
+  }
+  
+  .earth-element,
+  .sun-element,
+  .rat-element,
+  .plant-element {
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .spaceship-section {
+    margin: 5rem 0 3rem;
+  }
+  
+  .spaceship-element::after {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    bottom: -2rem;
+  }
+  
+  /* Make elements slightly larger on mobile for easier clicking */
+  .brain-element,
+  .heart-element,
+  .lungs-element,
+  .digestive-element {
+    width: 18%;
+  }
+  
+  .body-element {
+    width: 25%;
+  }
+  
+  .earth-element,
+  .sun-element,
+  .rat-element,
+  .plant-element {
+    width: 22%;
+  }
+}
+
+@media (max-width: 480px) {
+  .spaceship-section {
+    margin: 3rem 0 2rem;
+  }
+  
+  .spaceship-element:hover {
+    transform: scale(1.02);
+  }
+  
+  .spaceship-element::after {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
   }
 }

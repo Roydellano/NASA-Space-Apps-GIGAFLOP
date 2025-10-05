@@ -15,7 +15,6 @@ doi: "10.1002/jbmr.1647"
 journal: "Journal of Musculoskeletal & Neuronal Interactions"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4653813/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -89,7 +88,6 @@ chartData:
           display: true
           text: "Values (Mixed Units)"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 Prolonged exposure to microgravity causes significant muscle and bone deterioration, a major health concern for astronauts on long-duration missions. Current methods for assessing these changes, like DXA scans, are bulky and impractical for use in space. This has driven the search for lightweight, non-invasive diagnostic tools. This study investigates the potential of **Electrical Impedance Myography (EIM)**—a technique that measures how electrical currents pass through muscle—to detect muscle atrophy caused by spaceflight and simulated microgravity.

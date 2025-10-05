@@ -15,7 +15,6 @@ doi: "10.3389/fphys.2018.01469"
 journal: "Frontiers in Physiology"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6204554/"
 
-```yaml
 chartData:
   type: "line"
   data:
@@ -106,7 +105,6 @@ chartData:
           display: true
           text: "Value"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 Gravity has been a constant force throughout vertebrate evolution, shaping the development of sensory systems that maintain balance and spatial orientation. The utricle, a key organ in the inner ear, senses linear acceleration and head tilt relative to gravity. For astronauts, transitioning to microgravity and back to Earth's gravity profoundly disrupts this system, causing space motion sickness and disorientation. To better understand the underlying adaptive processes, this study used a ground-based centrifuge to expose toadfish, an important animal model for vestibular research, to sustained hypergravity (HG) and tracked the resulting changes in neural function and structure.

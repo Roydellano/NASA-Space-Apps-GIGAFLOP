@@ -15,7 +15,6 @@ doi: "10.3389/fpls.2021.777119"
 journal: "Frontiers in Plant Science"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8716943/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -88,7 +87,6 @@ chartData:
           display: true
           text: "Relative Effect"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

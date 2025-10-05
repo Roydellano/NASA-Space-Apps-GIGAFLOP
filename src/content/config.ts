@@ -18,14 +18,8 @@ const newsCollection = defineCollection({
     consensusLevel: z.string().optional(),
     knowledgeGaps: z.array(z.string()).optional(),
     journal: z.string().optional(),
-    chartData: z.object({
-      type: z.string(),
-      data: z.object({
-        labels: z.array(z.string()),
-        datasets: z.array(z.any()),
-      }),
-      options: z.any().optional(),
-    }).optional(),
+    // Made chartData fully optional and accepts any structure to handle malformed YAML gracefully
+    chartData: z.any().optional(),
   }),
 });
 

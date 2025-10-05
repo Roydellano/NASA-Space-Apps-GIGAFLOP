@@ -15,7 +15,6 @@ doi: "10.1016/j.celrep.2013.01.018"
 journal: "Cell Reports"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3593973/"
 
-```yaml
 chartData:
   type: "scatter"
   data:
@@ -102,7 +101,6 @@ chartData:
             size: 12
         beginAtZero: true
         max: 7000
-```
 ---
 
 # Introduction

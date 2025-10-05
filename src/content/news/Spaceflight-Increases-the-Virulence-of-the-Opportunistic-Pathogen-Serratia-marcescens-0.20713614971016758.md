@@ -15,7 +15,6 @@ doi: "10.1038/s41526-019-0091-2"
 journal: "NPJ Microgravity"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7000411/"
 
-```yaml
 chartData:
   type: "line"
   data:
@@ -114,7 +113,6 @@ chartData:
           display: true
           text: "CFU/fly"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 Astronauts experience immune system dysregulation during space missions, making them more susceptible to infections. Compounding this risk, evidence suggests that the spaceflight environment can alter the characteristics of microorganisms. This study investigates the dual-risk scenario by examining whether spaceflight changes the virulence of *Serratia marcescens*, an opportunistic bacterium found on the International Space Station (ISS), using the fruit fly, *Drosophila melanogaster*, as a model host organism.

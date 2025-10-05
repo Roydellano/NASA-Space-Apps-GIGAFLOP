@@ -15,7 +15,6 @@ doi: "10.1038/s41598-019-55869-2"
 journal: "Scientific Reports"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6985101/"
 
-```yaml
 chartData:
   type: "none"
   data:
@@ -25,7 +24,6 @@ chartData:
       - label: "Correlation"
   options:
     responsive: true
-```
 ---
 # Introduction
 The liver is a vital organ that performs critical metabolic functions, but the spaceflight environment—including microgravity and radiation—imposes significant stress on it. While previous studies have noted changes in liver function, the consistent molecular mechanisms driving these adaptations have remained unclear. This study addresses this gap by integrating data from multiple spaceflight missions to identify common biological themes and key regulatory networks that are altered in the liver during space travel.

@@ -15,7 +15,7 @@ doi: "10.1152/japplphysiol.00014.2009"
 journal: "Journal of Applied Physiology"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3774184/"
 
-```yaml
+
 chartData:
   type: "bar"
   data:
@@ -89,7 +89,6 @@ chartData:
           font:
             size: 12
         beginAtZero: true
-```
 ---
 
 # Introduction

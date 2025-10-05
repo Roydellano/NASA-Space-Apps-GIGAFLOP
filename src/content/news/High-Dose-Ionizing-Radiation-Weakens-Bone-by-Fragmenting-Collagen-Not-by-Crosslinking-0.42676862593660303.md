@@ -15,7 +15,6 @@ doi: "10.1016/j.bone.2019.11.5043"
 journal: "Bone"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6813909/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -91,7 +90,6 @@ chartData:
           display: true
           text: "Relative Change (% of Control)"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 Ionizing radiation, a key concern in clinical settings like radiotherapy and for astronauts in deep space, is known to increase bone fracture risk. However, the precise molecular mechanism responsible for this radiation-induced bone embrittlement has been unclear. Two primary theories have been proposed: the fragmentation of the collagen protein backbone, or the accumulation of non-enzymatic crosslinks between collagen molecules. This study sought to determine which of these mechanisms is the dominant cause of mechanical degradation in bone when exposed to a wide range of radiation doses.

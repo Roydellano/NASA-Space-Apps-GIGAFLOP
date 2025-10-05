@@ -15,7 +15,6 @@ doi: "10.3389/fpls.2020.00005"
 journal: "Frontiers in Plant Science"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7010715/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -85,7 +84,6 @@ chartData:
           display: true
           text: "Relative Value"
           color: "#cbd5e1"
-```
 ---
 # Introduction
 Plants orient their growth in response to gravity, a process known as gravitropism, which is essential for survival. While it's known that certain substances, like the plant hormone epi-brassinolide (eBL) and the actin-disrupting drug Latrunculin B (LatB), can enhance a root's downward growth, the underlying mechanism has been unclear. Gravitropism is a two-part process: an initial bend towards gravity, followed by a straightening response called autotropism. This study investigates whether eBL enhances gravitropism by promoting the initial bend or by inhibiting the subsequent straightening, and explores the role of the cell's internal scaffolding, the actin cytoskeleton, in this process.

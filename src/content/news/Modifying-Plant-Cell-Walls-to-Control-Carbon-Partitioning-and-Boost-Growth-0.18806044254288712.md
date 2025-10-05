@@ -15,7 +15,6 @@ doi: "10.1104/pp.16.00173"
 journal: "Plant Physiology"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4902601/"
 
-```yaml
 chartData:
   type: "line"
   data:
@@ -138,7 +137,6 @@ scales:
         ticks:
           color: "#cbd5e1"
         beginAtZero: true
-```
 ---
 
 # Introduction

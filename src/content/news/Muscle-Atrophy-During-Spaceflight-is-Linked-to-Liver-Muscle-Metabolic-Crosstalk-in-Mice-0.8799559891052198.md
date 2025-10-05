@@ -15,7 +15,6 @@ doi: "10.1016/j.isci.2022.105213"
 journal: "iScience"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9576569/"
 
-```yaml
 chartData:
   type: "radar"
   data:
@@ -90,7 +89,6 @@ chartData:
             size: 13
             weight: "600"
             family: "'Inter', system-ui, sans-serif"
-```
 ---
 
 # Introduction
