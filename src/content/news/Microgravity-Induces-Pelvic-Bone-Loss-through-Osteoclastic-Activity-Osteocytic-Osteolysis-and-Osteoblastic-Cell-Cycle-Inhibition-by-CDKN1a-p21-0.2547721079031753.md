@@ -15,7 +15,6 @@ doi: "10.1371/journal.pone.0061372"
 journal: "PLoS One"
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3630201/"
 
-```yaml
 chartData:
   type: "bar"
   data:
@@ -87,7 +86,6 @@ chartData:
           display: true
           text: "Value / % Change"
           color: "#cbd5e1"
-```
 ---
 
 # Introduction

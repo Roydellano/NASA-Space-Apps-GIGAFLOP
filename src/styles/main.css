@@ -1470,6 +1470,41 @@ a:hover {
   margin-top: 0.125rem;
 }
 
+/* AI Summary Notice */
+.ai-summary-notice {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.1) 0%, 
+    rgba(167, 139, 250, 0.05) 100%);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.ai-summary-notice .info-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: var(--accent-light);
+  margin-top: 0.125rem;
+}
+
+.ai-summary-notice .notice-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ai-summary-notice strong {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
 /* Featured Image */
 .featured-image-container {
   margin-top: 2rem;

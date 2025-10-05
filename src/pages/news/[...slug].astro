@@ -124,7 +124,7 @@ const relatedArticles = allNews
             )}
             {url && (
               <div class="publication-field">
-                <span class="publication-label">Article URL:</span>
+                <span class="publication-label">Original Publication:</span>
                 <a href={url} target="_blank" rel="noopener noreferrer" class="publication-link">
                   {url}
                   <svg class="external-link-icon" viewBox="0 0 20 20" fill="currentColor">
@@ -134,6 +134,17 @@ const relatedArticles = allNews
                 </a>
               </div>
             )}
+          </div>
+
+          <!-- AI Summary Notice -->
+          <div class="ai-summary-notice">
+            <svg class="info-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+            <p class="notice-text">
+              <strong>Note:</strong> This page presents an AI-generated summary of the research. 
+              For the complete original publication, please follow the link above.
+            </p>
           </div>
 
           <!-- Featured Image -->
