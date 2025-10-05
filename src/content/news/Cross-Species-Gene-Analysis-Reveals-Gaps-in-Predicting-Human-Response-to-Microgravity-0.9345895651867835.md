@@ -1,14 +1,12 @@
 ---
 url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11053165/"
----
----
 title: "NASA GeneLab derived microarray studies of Mus musculus and Homo sapiens organisms in altered gravitational conditions"
 summary: "This meta-analysis of NASA GeneLab microarray data reveals reproducible gene expression changes in musculoskeletal tissues of mice and humans exposed to altered gravity. However, the study found significantly limited overlap in these genetic responses between species, highlighting challenges in using mouse models to predict human physiological changes during spaceflight."
 publishDate: 2024-04-26T00:00:00Z
 authors: ["Konstantinos I Adamopoulos", "Lauren M Sanders", "Sylvain V Costes"]
 tags: ["Genetics", "Musculoskeletal", "Microgravity", "Human Physiology", "Animals"]
 organisms: ["Mice", "Humans"]
-experimentType: "Spaceflight", "Simulated Microgravity"
+experimentType: "Spaceflight"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759639625/b0u3eerk185cqpf0vvuh.jpg"
 readTime: 4
 priority: "high"
