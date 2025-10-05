@@ -3,7 +3,7 @@ title: "Modifying Plant Cell Walls to Control Carbon Partitioning and Boost Grow
 summary: "A study on Arabidopsis reveals that altering pectin methylesterification, a key cell wall component, redirects how plants use carbon. This change in carbon allocation, rather than photosynthetic rate, is the primary driver of plant growth, offering a new genetic target for optimizing crops for space missions."
 publishDate: 2016-04-04T00:00:00Z
 authors: ["Weraduwage SM", "Kim SJ", "Renna L", "Anozie FC", "Sharkey TD", "Brandizzi F"]
-tags: ["Genetics", "Metabolomics", "Technology", "Microgravity", "Earth"]
+tags: ["Genetics", "Metabolomics", "Technology", "Microgravity", "Earth", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759682851/wlf4zx0wkxvbprvjedkp.jpg"

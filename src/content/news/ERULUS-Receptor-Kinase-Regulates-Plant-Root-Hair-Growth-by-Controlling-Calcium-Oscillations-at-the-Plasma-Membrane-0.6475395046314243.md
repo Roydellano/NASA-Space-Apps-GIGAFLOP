@@ -3,7 +3,7 @@ title: "ERULUS Receptor Kinase Regulates Plant Root Hair Growth by Controlling C
 summary: "This study clarifies the function of the ERULUS (ERU) protein in Arabidopsis root hairs, showing it localizes to the plasma membrane, not the vacuole as previously thought. ERU is essential for maintaining the precise frequency and amplitude of calcium oscillations required for proper tip growth, a key process for plant nutrient uptake in both terrestrial and space environments."
 publishDate: 2018-05-25T00:00:00Z
 authors: ["Kwon T", "Sparks JA", "Liao F", "Blancaflor EB"]
-tags: ["Genetics", "Microbiology", "Technology", "Earth", "Microgravity"]
+tags: ["Genetics", "Microbiology", "Technology", "Earth", "Microgravity", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680832/suos2zvdq6aipsxojrgg.jpg"

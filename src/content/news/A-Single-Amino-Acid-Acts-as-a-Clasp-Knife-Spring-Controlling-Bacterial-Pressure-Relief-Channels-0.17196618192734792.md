@@ -3,7 +3,7 @@ title: "A Single Amino Acid Acts as a 'Clasp Knife Spring' Controlling Bacterial
 summary: "By creating hybrid channels from E. coli and S. aureus, researchers identified a single amino acid at the protein-lipid interface that controls how bacterial mechanosensitive channels (MscL) respond to pressure. This 'molecular spring' dictates both the sensitivity and duration of the channel's opening, providing a fundamental insight into how cells sense mechanical forces."
 publishDate: 2013-02-14T00:00:00Z
 authors: ["Yang LM", "Zhong D", "Blount P"]
-tags: ["Microbiology", "Genetics", "Proteomics", "Human Physiology", "Microgravity"]
+tags: ["Microbiology", "Genetics", "Proteomics", "Human Physiology", "Microgravity", "Digestive"]
 organisms: ["E. coli", "S. aureus"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759681484/wwkphoyeqbyhxc8w3dcu.jpg"

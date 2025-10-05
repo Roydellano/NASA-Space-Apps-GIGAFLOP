@@ -3,7 +3,7 @@ title: "Muscle Atrophy During Spaceflight is Linked to Liver-Muscle Metabolic Cr
 summary: "Transcriptomic analysis of mice after 37 days in space reveals a strong correlation between impaired lipid metabolism in the liver and gene expression patterns of muscle atrophy. This suggests a systemic, starvation-like metabolic shift, highlighting the liver's role in driving muscle loss and pointing to dietary interventions as a potential countermeasure."
 publishDate: 2022-10-21T00:00:00Z
 authors: ["Vitry G", "Finch R", "Mcstay G", "Behesti A", "Déjean S", "Larose T", "Wotring V", "da Silveira WA"]
-tags: ["Musculoskeletal", "Metabolomics", "Genetics", "Microgravity", "Animals"]
+tags: ["Musculoskeletal", "Metabolomics", "Genetics", "Microgravity", "Animals", "Digestive"]
 organisms: ["Mice"]
 experimentType: "Spaceflight"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680260/eyk3zktbfhucwkbop3nj.jpg"

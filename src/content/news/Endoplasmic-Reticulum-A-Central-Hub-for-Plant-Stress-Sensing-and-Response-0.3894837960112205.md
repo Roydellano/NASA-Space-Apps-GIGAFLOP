@@ -3,7 +3,7 @@ title: "Endoplasmic Reticulum: A Central Hub for Plant Stress Sensing and Respon
 summary: "This review synthesizes current knowledge on the plant endoplasmic reticulum (ER), highlighting its critical role as a sensor and mediator of cellular stress. By managing protein quality, initiating signaling pathways, and influencing cell fate, the ER is fundamental to plant adaptation, with major implications for developing resilient crops for space missions."
 publishDate: 2014-09-01T12:00:00Z
 authors: ["Brandizzi F", "Frigerio L", "Howell SH", "Schäfer P"]
-tags: ["Genetics", "Proteomics", "Earth", "Microgravity", "Microbiology"]
+tags: ["Genetics", "Proteomics", "Earth", "Microgravity", "Microbiology", "Plants"]
 organisms: ["Arabidopsis", "Others"]
 experimentType: "Others"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759682613/g3fjadogvijq67i140lr.jpg"

@@ -3,7 +3,7 @@ title: "Galactose-Depleted Xyloglucan Is Dysfunctional and Leads to Dwarfism in 
 summary: "This study on Arabidopsis reveals that altering the structure of the cell wall polysaccharide xyloglucan by depleting galactose makes it dysfunctional, causing severe dwarfism. The research shows that the presence of this dysfunctional component is more detrimental than its complete absence, highlighting the critical role of specific sugar side chains for proper plant growth and development."
 publishDate: 2015-02-10T00:00:00Z
 authors: ["Kong Y", "Peña MJ", "Renna L", "Avci U", "Pattathil S", "Tuomivaara ST", "Li X", "Reiter WD", "Brandizzi F", "Hahn MG", "Darvill AG", "York WS", "O’Neill MA"]
-tags: ["Genetics", "Microbiology", "Technology", "Earth"]
+tags: ["Genetics", "Microbiology", "Technology", "Earth", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759682671/hb3nbnsxokl8f2sho8ct.jpg"

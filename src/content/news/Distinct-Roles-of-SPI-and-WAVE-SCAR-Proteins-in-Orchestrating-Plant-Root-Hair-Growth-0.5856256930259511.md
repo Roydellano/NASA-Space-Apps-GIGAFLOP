@@ -3,7 +3,7 @@ title: "Distinct Roles of SPI and WAVE/SCAR Proteins in Orchestrating Plant Root
 summary: "This study reveals a molecular hand-off controlling root hair development in Arabidopsis. The WAVE/SCAR complex initiates root hair emergence, while the SPIRRIG (SPI) protein takes over to sustain tip growth by maintaining the actin cytoskeleton, a finding critical for optimizing plant nutrient uptake in space-based agriculture."
 publishDate: 2021-04-20T00:00:00Z
 authors: ["Chin S", "Kwon T", "Khan BR", "Sparks JA", "Mallery EL", "Szymanski DB", "Blancaflor EB"]
-tags: ["Genetics", "Microbiology", "Earth", "Technology"]
+tags: ["Genetics", "Microbiology", "Earth", "Technology", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759681012/sbhiw6qgkmlelisb2hkc.jpg"

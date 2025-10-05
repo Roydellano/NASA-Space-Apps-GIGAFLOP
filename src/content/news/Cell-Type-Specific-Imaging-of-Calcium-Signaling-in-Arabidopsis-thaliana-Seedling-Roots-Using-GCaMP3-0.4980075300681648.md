@@ -3,7 +3,7 @@ title: "Cell Type-Specific Imaging of Calcium Signaling in Arabidopsis thaliana 
 summary: "Researchers developed new Arabidopsis lines with a calcium sensor (GCaMP3) targeted to specific root cells. This toolkit revealed that different cell types exhibit unique calcium signaling patterns in response to chemical stressors like salt and aluminum, providing a more precise way to study plant environmental responses."
 publishDate: 2020-09-02T00:00:00Z
 authors: ["Krogman W", "Sparks JA", "Blancaflor EB"]
-tags: ["Genetics", "Technology", "Microgravity", "Earth"]
+tags: ["Genetics", "Technology", "Microgravity", "Earth", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680948/rpxt8l09pjraf7xzablp.jpg"

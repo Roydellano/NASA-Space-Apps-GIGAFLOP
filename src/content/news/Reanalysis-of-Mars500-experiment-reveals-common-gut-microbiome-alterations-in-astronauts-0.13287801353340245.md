@@ -3,7 +3,7 @@ title: "Reanalysis of the Mars500 experiment reveals common gut microbiome alter
 summary: "A reanalysis of the 520-day Mars500 isolation experiment identified significant, common changes in the crew's gut microbiome. The study found a depletion of key anti-inflammatory bacteria, which correlates with observed physiological symptoms of intestinal inflammation and metabolic disruption, highlighting a critical health risk for long-duration space missions."
 publishDate: 2021-04-23T00:00:00Z
 authors: ["Brereton NJB", "Pitre FE", "Gonzalez E"]
-tags: ["Microbiology", "Human Physiology", "Simulated Microgravity", "Metabolomics"]
+tags: ["Microbiology", "Human Physiology", "Simulated Microgravity", "Metabolomics", "Digestive"]
 organisms: ["Humans"]
 experimentType: "Simulated Microgravity"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759683128/gvxt9ctpul06eae73zh4.jpg"

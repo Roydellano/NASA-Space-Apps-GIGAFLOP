@@ -3,7 +3,7 @@ title: "Microbial Emergency Release Valves: How Bacteria Survive Osmotic Shock"
 summary: "This review details the function of two critical protein families, MscS and MscL, which act as mechanosensitive channels to protect microbes from bursting under sudden osmotic stress. These channels serve as 'emergency release valves,' a fundamental survival mechanism with significant implications for controlling microbial life in space environments."
 publishDate: 2012-07-13T00:00:00Z
 authors: ["Booth I", "Blount P"]
-tags: ["Microbiology", "Genetics", "Proteomics", "Human Physiology", "Technology"]
+tags: ["Microbiology", "Genetics", "Proteomics", "Human Physiology", "Technology", "Digestive"]
 organisms: ["E. coli", "Vibrio", "Mycoplasma", "Fungi", "Others"]
 experimentType: "Others"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759681413/oiqcu4qwuaacqebuh9an.jpg"

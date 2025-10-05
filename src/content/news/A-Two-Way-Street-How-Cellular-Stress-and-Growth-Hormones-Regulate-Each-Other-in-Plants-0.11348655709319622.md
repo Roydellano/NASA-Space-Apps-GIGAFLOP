@@ -3,7 +3,7 @@ title: "A Two-Way Street: How Cellular Stress and Growth Hormones Regulate Each 
 summary: "Research in Arabidopsis thaliana reveals a critical two-way link between the Unfolded Protein Response (UPR), a key cellular stress pathway, and the growth hormone auxin. ER stress was found to suppress auxin signaling, while ER-based auxin transport is essential for a full UPR, uncovering a novel mechanism plants use to balance growth with stress adaptation."
 publishDate: 2013-12-03T00:00:00Z
 authors: ["Chen Y", "Aung K", "Rolčík J", "Walicki K", "Friml J", "Brandizzi F"]
-tags: ["Genetics", "Microgravity", "Endocrinology", "Microbiology", "Earth"]
+tags: ["Genetics", "Microgravity", "Endocrinology", "Microbiology", "Earth", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759682561/h0qgc6aasdjqngrvndzf.jpg"

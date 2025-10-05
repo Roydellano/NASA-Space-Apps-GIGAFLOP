@@ -3,7 +3,7 @@ title: "The Role of the Actin Cytoskeleton in Plant Root Growth and Gravitropism
 summary: "This review synthesizes research on the plant actin cytoskeleton, establishing it as a critical integrator of hormonal and environmental signals that control primary root growth. Findings highlight how actin organization, particularly the formation of longitudinal bundles, drives cell elongation and mediates gravity sensing, providing foundational knowledge for growing plants in space."
 publishDate: 2021-12-16T00:00:00Z
 authors: ["García-González J", "van Gelderen K"]
-tags: ["Microgravity", "Genetics", "Earth"]
+tags: ["Microgravity", "Genetics", "Earth", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Others"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680714/mwjkswoqlcmyxwbqgntk.jpg"

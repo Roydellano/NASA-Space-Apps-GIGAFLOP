@@ -3,7 +3,7 @@ title: "Brassinosteroids Inhibit Autotropic Root Straightening by Modifying Fila
 summary: "Ground-based study using a microgravity-simulating clinostat reveals that the plant hormone brassinosteroid enhances root gravitropism by inhibiting the root's natural straightening response (autotropism). This effect is linked to the hormone's ability to alter the organization and reduce the dynamics of the actin cytoskeleton, providing a new mechanism for how plants control their growth orientation."
 publishDate: 2020-02-04T00:00:00Z
 authors: ["de Bang L", "Paez-Garcia A", "Cannon AE", "Chin S", "Kolape J", "Liao F", "Sparks JA", "Jiang Q", "Blancaflor EB"]
-tags: ["Microgravity", "Genetics", "Technology", "Earth"]
+tags: ["Microgravity", "Genetics", "Technology", "Earth", "Plants"]
 organisms: ["Others"]
 experimentType: "Simulated Microgravity"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680890/dnetih2bkz06ky2pp7r8.jpg"

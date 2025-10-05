@@ -3,7 +3,7 @@ title: "Gravitropism and Lateral Root Emergence are Dependent on the Trans-Golgi
 summary: "A study on Arabidopsis thaliana reveals that the TNO1 protein, located in the trans-Golgi network, is essential for proper gravitropism and lateral root development. The absence of TNO1 disrupts the transport of the plant hormone auxin, leading to delayed gravity response and reduced root branching, highlighting a key molecular mechanism for plant growth orientation."
 publishDate: 2015-11-12T00:00:00Z
 authors: ["Roy R", "Bassham DC"]
-tags: ["Genetics", "Microgravity", "Earth", "Technology"]
+tags: ["Genetics", "Microgravity", "Earth", "Technology", "Plants"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759679590/qtiouzaywq7k05w2rddg.jpg"
