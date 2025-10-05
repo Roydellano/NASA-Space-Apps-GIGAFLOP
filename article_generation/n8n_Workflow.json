@@ -1,0 +1,834 @@
+{
+  "name": "NASA-Space-Apps-GIGAFLOP",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=create a article from this page: {{ $json.data }}",
+        "options": {
+          "systemMessage": "=You are a scientific publication summarizer for NASA's Bioscience Research Publications Dashboard. Your task is to analyze and summarize only ONE NASA bioscience publication from their online repository, creating accessible, structured summaries that highlight key findings, implications for space missions, and scientific consensus or knowledge gaps.\n\n## Publication Summary Format Requirements\n\n### Frontmatter (YAML)\nEach publication summary must begin with YAML frontmatter containing:\n- title: The publication title (use quotes, keep original or create descriptive title)\n- summary: A concise 2-3 sentence overview highlighting the key finding and significance (use quotes)\n- publishDate: Publication date in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ) - use actual publication date\n- authors: Array of author names (e.g., [\"Smith J\", \"Jones A\", \"Williams B\"])\n- tags: Array of relevant tags from these categories, use 3-5 tags: [\"Neurology \", \"Cardiovascular\", \"Renal\", \"Respiratory\", \"Inmunology\", \"Tegumentary System\", \"Endocrinology\", \"Animals\", \"Musculoskeletal\", \"Microbiology\", \"Genetics\", \"Techonology\", \"Radiation\", \"Earth\", \"Metabolomics\", \"Proteomics\", \"Tissue Engineering\", “Human Physiology”, “Microgravity”]\n- organisms: Array of organisms studied (e.g., [\"Humans\", \"Mice\", \"Arabidopsis\", \"C. elegans\", \"E. coli\", \"Yeast\", “Others])\n- experimentType: Type of experiment (e.g., \"Ground Control\", \"Spaceflight\", \"Parabolic Flight\", \"Simulated Microgravity\", \"Radiation Exposure\", “Others”) Only use one\n- featuredImage: Only use \"/default/\"\n- readTime: Estimated reading time in minutes (2-5 typically)\n- priority: Either \"high\", \"medium\", or \"low\" based on mission relevance\n- consensusLevel: One of [\"high\", \"medium\", \"low\", \"controversial\"] - indicates scientific agreement\n- knowledgeGaps: Array of identified research gaps or unanswered questions (2-4 items)\n- doi: Digital Object Identifier, only use one article for the doi.\n- journal: Publication journal name\n\n####Example:\n---\ntitle: \"Long-term Microgravity Exposure Induces Significant Bone Density Loss in Astronauts\"\nsummary: \"12-month ISS study reveals 1.5% monthly bone density loss in astronauts, with recovery taking 2-3 years post-flight. Findings critical for long-duration Mars missions and highlight need for advanced countermeasures.\"\npublishDate: 2023-06-15T14:30:00Z\nauthors: [\"Smith JK\", \"Anderson M\", \"Lee S\", \"Rodriguez C\"]\ntags: [\"Musculoskeletal\", \"Microgravity\", \"Human Physiology”]\norganisms: [\"Humans\"]\nexperimentType: \"Spaceflight\"\nfeaturedImage: \"/default/\"\nreadTime: 3\npriority: \"high\"\nconsensusLevel: \"high\"\nknowledgeGaps: [\"Optimal exercise regimen for bone preservation\", \"Long-term recovery mechanisms\", \"Genetic factors in susceptibility\", \"Pharmaceutical interventions effectiveness\"]\ndoi: \"10.1000/example.2023.12345\"\njournal: \"Journal of Space Medicine\"\n---\n\n\n### Summary Structure\n1. **Main Headline**: Put \"Introduction\" in H1 size\n2. **Opening Paragraph**: Brief introduction providing context and the primary research question\n3. **Section 1 - Research Objective**: What the study aimed to discover\n   - Use H2 heading: \"Research Objective\"\n   - Include 2-3 bullet points on research goals\n4. **Section 2 - Key Findings**: Present the main results\n   - Use H2 heading: \"Key Findings\"\n   - Include 4-6 bullet points with specific data, measurements, and observations\n   - Use metrics, percentages, and quantitative data when available\n5. **Section 3 - Methodology**: Brief overview of experimental approach\n   - Use H2 heading: \"Methodology\"\n   - Organisms/subjects studied\n   - Experimental conditions (spaceflight duration, radiation levels, etc.)\n   - Key techniques used (omics, imaging, behavioral studies, etc.)\n6. **Section 4 - Mission Importance**: Relevance to space exploration\n   - Use H2 heading: \"Importance for Space Missions\"\n   - Impact on astronaut health, life support, or mission planning\n   - Potential countermeasures or applications\n7. **Section 5 - Knowledge Gaps & Future Directions**: What remains unknown\n   - Use H2 heading: \"Knowledge Gaps & Future Research\"\n   - List 3-4 unanswered questions or areas needing further study\n   - Mention related ongoing or planned research\n8. **Closing Paragraph**: Summarize significance and broader importance for space biology\n   - Use H2 heading: \"Results\"\n\n## Writing Style Guidelines\n\n### Tone & Voice\n- Scientific but accessible to non-specialists\n- Authoritative and evidence-based\n- Explain technical concepts clearly without oversimplification\n- Use active voice when possible\n- Maintain objectivity while highlighting significance\n- Emphasize practical applications for space missions\n\n### Content Requirements\n- 300-500 words total (longer for complex studies)\n- Use specific numbers, percentages, measurements, and statistical data\n- Include organism names, experiment durations, and methodological details\n- Cite specific findings with quantitative support\n- Reference practical applications\n- Identify areas of scientific consensus or controversy\n- Explicitly note knowledge gaps and future research needs\n- Focus on biological insights relevant to space exploration\n\n### Formatting\n- Use bullet points for findings, methods, and knowledge gaps\n- Bold key findings, measurements, and important terms\n- Include relevant statistics, p-values, and effect sizes when available\n- Structure content for quick scanning by researchers and mission planners\n- Use clear section headers\n\n## Examples of Good Tag Combinations\n- For human spaceflight studies: [\"Human Physiology\", \"Microgravity\", \"Space Medicine\", \"Bone Density\", \"ISS Research\"]\n- For plant research: [\"Plant Biology\", \"Closed Ecosystems\", \"Life Support Systems\", \"Genetics\", \"Astrobiology\"]\n- For molecular studies: [\"Cell Biology\", \"Gene Expression\", \"Molecular Biology\", \"Radiation Biology\", \"Proteomics\"]\n- For model organisms: [\"Cell Biology\", \"Genetics\", \"Microgravity\", \"Radiation Biology\", \"Model Organisms\"]\n\n## Priority Guidelines\n- **High**: Direct relevance to astronaut health, mission-critical findings, paradigm-shifting discoveries, high consensus with immediate applications\n- **Medium**: Significant findings for specific missions, model organism studies with human relevance, important mechanistic insights\n- **Low**: Preliminary findings, incremental studies, ground-based simulations with limited validation\n\n## Consensus Level Guidelines\n- **High**: Well-replicated findings, multiple independent studies confirm results, broadly accepted by field\n- **Medium**: Supported by some evidence but needs further validation, emerging consensus\n- **Low**: Limited studies, preliminary findings, needs replication\n- **Controversial**: Conflicting results in literature, significant disagreement among researchers, unexpected findings contradicting prior work\n\n## Knowledge Gap Identification\nWhen analyzing publications, specifically identify:\n- Unanswered mechanistic questions\n- Scale-up challenges (e.g., from cells to organisms, ground to space)\n- Missing countermeasures or interventions\n- Gaps between model organisms and human applications\n- Temporal gaps (short-term vs long-duration effects)\n- Environmental factor interactions not yet studied\n- Translation challenges from research to mission operations\n\nRemember to create summaries that serve multiple audiences: researchers seeking related work, mission planners needing actionable insights, and the general public interested in space biology. Focus on making complex science accessible while maintaining scientific accuracy.\n",
+          "maxIterations": 6
+        }
+      },
+      "id": "d59dedf1-f9d6-4006-9e74-54e8a632dc57",
+      "name": "Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        -576,
+        416
+      ],
+      "typeVersion": 2,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Code in JavaScript').item.json.output }}",
+        "options": {
+          "systemMessage": "=As a data extraction specialist, your task is to identify and extract only the title from the provided text. The title should be the main heading or the most prominent line that summarizes the content. Please ensure that the extracted title is clear and concise, without any additional information or context. The title needs to be formatted with hyphens \"-\" instead of spaces to enhance readability and maintain consistency.\n\n**Expected Output Format:**\n- The output should be a single line containing only the title, formatted with hyphens and without any surrounding quotes or additional text.\n\n**Constraints:**\n- Only use letters and numbers dont use sybols.\n- The title must not exceed 100 characters.\n- Ensure that the title is free from any special characters or punctuation, except for hyphens.\n\n**Example:**\n- Input: \"The Impact of Climate Change on Global Ecosystems - etc etc\"\n- Output: \"The-Impact-of-Climate-Change-on-Global-Ecosystems\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        704,
+        416
+      ],
+      "id": "af401f87-2edd-40e2-90f9-c1779d2936d2",
+      "name": "Title Extract",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        704,
+        624
+      ],
+      "id": "7b759ec6-7802-4d71-b95e-b09216f019ed",
+      "name": "Gemini 2.5 Flash",
+      "credentials": {
+        "openRouterApi": {
+          "id": "hcD5w35I8eite6s3",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Get initial data\n// Assumes the input contains the markdown/YAML content in 'output'\nconst item = $input.first().json;\n// Fetches the URL from a previous node named 'Set url'\nconst url = $('Set url').first().json.url;\n\n// --- Main Task: Insert the URL into the YAML front matter ---\n\n// Use '\\n---' as a delimiter to safely split the front matter from the body.\n// This prevents accidental splits if '---' appears as a horizontal rule in the body.\nconst delimiter = '\\n---';\nconst parts = item.output.split(delimiter);\n\n// Check if a front matter section actually exists (if split creates more than one part)\nif (parts.length > 1) {\n  // The first part is the front matter block (e.g., '---\\ntitle: \"Hello\"')\n  let frontMatter = parts[0];\n  // Everything else is the body. We re-join it in case the delimiter appeared multiple times.\n  let body = parts.slice(1).join(delimiter);\n\n  // Define the new YAML line to be inserted.\n  const urlLine = `url: \"${url}\"`;\n\n  // Append the new 'url' key-value pair to the front matter string.\n  // This will place it right before the closing '---' delimiter.\n  frontMatter = frontMatter + '\\n' + urlLine;\n\n  // Recombine the document with the modified front matter and the original body.\n  item.output = frontMatter + delimiter + body;\n}\n\n// 2. Return the final object\n// The entire modified content, with the URL included, is now in the 'output' field.\nreturn { json: { output: item.output } };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -192,
+        416
+      ],
+      "id": "0770a421-a8b6-4b4d-b49c-52c8ae167731",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2432,
+        944
+      ],
+      "id": "609a3edb-5ddf-484a-9ff5-8025fe3d3255",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e04fec4-441e-45f7-acea-0017a4b5c104",
+              "name": "model",
+              "type": "string",
+              "value": "flux"
+            },
+            {
+              "id": "aa80cd68-1c82-4032-b1d7-e098856eec38",
+              "name": "width",
+              "type": "string",
+              "value": "1280"
+            },
+            {
+              "id": "da6d305f-aece-49bd-ae02-52df59915c60",
+              "name": "height",
+              "type": "string",
+              "value": "720"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a5b8b0c4-a7f7-46fe-a1e8-a43408df6979",
+      "name": "Fields - Set Values",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1040,
+        416
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "jsCode": "function cleanAndExtractJSON(response) {\n    try {\n        const result = {\n            image_prompt: []\n        };\n\n        const lines = response.split('\\n');\n        let currentPrompt = '';\n\n        for (const line of lines) {\n            if (line.includes('\"prompt\":')) {\n                if (currentPrompt) {\n                    result.image_prompt.push(currentPrompt.trim());\n                }\n                currentPrompt = line.split('\"prompt\":')[1].trim();\n            }\n        }\n\n        if (currentPrompt) {\n            result.image_prompt.push(currentPrompt.trim());\n        }\n\n        return { json: result };\n        \n    } catch (error) {\n        return { \n            json: {\n                image_prompt: []\n            }\n        };\n    }\n}\n\nconst response = $input.first().json.output;\nreturn cleanAndExtractJSON(response);"
+      },
+      "id": "d39fb533-82d3-4e6b-a3fe-9c89cbf5005d",
+      "name": "Code - Clean Json",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1648,
+        416
+      ],
+      "executeOnce": false,
+      "typeVersion": 2,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.image_prompt.map(prompt => ({\n  json: {\n    body: {\n      prompt: prompt,\n  \"image_size\": {\n    \"width\": $('Fields - Set Values').first().json.width,\n    \"height\": $('Fields - Set Values').first().json.height\n  },\n  \"num_inference_steps\": 12,\n  \"guidance_scale\": 3.5,\n  \"num_images\": 1,\n  \"enable_safety_checker\": true,\n}\n    }\n  }\n));"
+      },
+      "id": "00d1039b-f72e-48a1-8724-992504c577d0",
+      "name": "Code - Get Prompt",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1824,
+        416
+      ],
+      "typeVersion": 2,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/ {{ $('Code - Get Prompt').item.json.body.prompt }}",
+        "sendQuery": true,
+        "specifyQuery": "json",
+        "jsonQuery": "={\n  \"width\": {{ $('Fields - Set Values').item.json.width }},\n  \"height\": {{ $('Fields - Set Values').item.json.height }},\n  \"model\": \"{{ $('Fields - Set Values').item.json.model }}\",\n  \"seed\": 42,\n  \"nologo\": true\n}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b100bb8c-9041-4e99-ad9a-62494d8c1041",
+      "name": "HTTP Request - Create Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2272,
+        416
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "alwaysOutputData": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "const name = $('Title Extract').first().json.output + Math.random() + \".jpg\";\nreturn { name };\n"
+      },
+      "id": "0158988c-f23c-429e-89b2-3dd78c45be96",
+      "name": "Code - Set Filename",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1984,
+        416
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1216,
+        624
+      ],
+      "id": "1f5bec9e-335a-41e0-a41e-87cca97c87e1",
+      "name": "Gemini 2.5 Flash1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "hcD5w35I8eite6s3",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Title Extract').item.json.output }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an AI image‑prompt creation expert for NASA bioscience research publications. Please create image prompts using the following JSON format:\n\nAI Image Generation Prompt Guidelines for BioNauta - NASA Bioscience Publications\n\nObjective\nCreate highly realistic, scientific-quality images\nEnsure the image content faithfully conveys space biology and NASA research themes\nIntegrate short text (10–20 characters) naturally into the image\nMaintain scientific accuracy, professionalism, and NASA aesthetic\n\nStandard Prompt Structure\n[Main Scene] | [Key Elements] | [Text Integration] | [Lighting & Atmosphere] | [Technical Parameters] | [Style Parameters]\n\nComponent Breakdown\n1. Main Scene (Weight ::8)\nDescribe the primary setting aligned with space biology and NASA research.\nExamples:\nSpace Biology: \"International Space Station laboratory module, microgravity research environment\"\nAstronaut Health: \"NASA medical facility, advanced biometric monitoring station\"\nCellular Research: \"cutting-edge microscopy laboratory, space biology research center\"\nPlant Biology: \"ISS plant growth chamber, controlled life support experiment\"\nRadiation Biology: \"radiation shielding research facility, deep space simulation environment\"\n\n2. Key Elements (Weight ::8)\nList the main visual elements required for NASA bioscience research.\nExamples:\n\"Large holographic display showing cellular structures with text 'Microgravity Effects' in NASA-style typography\"\n\"Scientists in clean room attire analyzing biological samples from space experiments\"\n\"Detailed visualization of DNA sequences, molecular structures floating in AR display\"\n\"Astronaut conducting biology experiment inside ISS research module\"\n\"Advanced microscopy imagery showing cells, tissues, or organisms studied in space\"\n\n3. Text Integration (Weight ::7)\nHow to display text within the image:\ntext elements | NASA-style typography (clean, modern sans-serif), clear readable scientific text, integrated naturally into research environment ::7\n\n4. Lighting & Atmosphere (Weight ::7)\nlighting | clean laboratory lighting, dramatic cinematic space lighting, scientific precision atmosphere ::7\nbackground | ISS interior modules, laboratory depth of field blur, clean scientific environment, subtle Earth or space visible through windows ::6\n\n5. Technical Parameters\nparameters | 8k resolution, hyperrealistic, photorealistic quality, scientific visualization, NASA aesthetic --ar 16:9\nsettings | sharp focus, high detail, scientific photography, professional grade --s 1000 --q 2\n\nComplete Examples\nExample 1: Microgravity Cell Biology Research\nInternational Space Station laboratory module | large holographic display showing \"Cell Adaptation\" with floating 3D molecular structures, NASA scientists analyzing microscopy data ::8 | clean ISS interior, scientific equipment, blue Earth visible through window ::7 | bright laboratory lighting with dramatic space atmosphere ::7 | 8k resolution, hyperrealistic quality, scientific visualization --ar 16:9 --s 1000 --q 2\n\nExample 2: Astronaut Bone Density Research\nNASA medical research facility | advanced body scanner displaying \"Bone Health\" in modern typography, astronaut in medical monitoring setup, detailed skeletal visualization ::8 | professional medical environment, high-tech monitoring equipment, clinical atmosphere ::7 | clean medical lighting, focused and precise ::7 | 8k resolution, photorealistic quality --ar 16:9 --s 1000 --q 2\n\nExample 3: Space Plant Biology\nISS plant growth chamber (Veggie system) | LED-lit plants with AR overlay showing \"Space Agriculture\" text, automated watering systems, biological monitoring sensors ::8 | enclosed growth environment, green foliage, scientific instrumentation ::7 | purple-pink LED grow lights, futuristic atmosphere ::7 | 8k resolution, hyperrealistic botanical photography --ar 16:9 --s 1000 --q 2\n\nExample 4: Radiation Biology Research\ndeep space radiation research facility | large screen displaying \"DNA Repair\" with molecular structure animations, scientists examining radiation effects on biological samples ::8 | specialized shielded laboratory, protective equipment, serious research atmosphere ::7 | dramatic scientific lighting, blue-tinted protective atmosphere ::7 | 8k resolution, scientific quality --ar 16:9 --s 1000 --q 2\n\nAdditional Parameters\n--chaos [0–100]: Adjust randomness (keep low for scientific accuracy, 0-30 recommended)\n--stylize [0–1000]: Degree of stylization (moderate 500-700 for scientific yet engaging)\n--seed [number]: Ensure consistency across generations\n--v 5.2: Use the latest model version\n\nImportant Notes for NASA Bioscience Imagery\n\nText in Image\nKeep it short and scientifically relevant (10-20 characters)\nUse NASA-style typography (clean sans-serif fonts like \"Helvetica Neue\" or \"DIN\")\nIntegrate naturally into scientific equipment displays, monitors, or AR overlays\nMatch research topic (e.g., \"Bone Density\", \"Cell Growth\", \"Radiation Effects\")\n\nComposition\nFollow the rule of thirds with scientific focal points\nEnsure clear focus on biological/medical elements\nBalance text with scientific imagery (microscopy, data visualizations, equipment)\nInclude NASA/ISS environmental context when appropriate\n\nColor Palette for Space Biology\nISS Interior: White, gray, blue accents, metallic surfaces\nLaboratory: Clean whites, clinical blues, neutral tones\nBiological Elements: Natural colors (greens for plants, reds/blues for cells)\nData Displays: High-tech blues, cyans, and holographic effects\nSpace Context: Deep blacks, Earth blues, warm ISS lighting\n\nTechnical Details\nAlways use high resolution (8k) for scientific detail\nEnsure clean laboratory or ISS module lighting\nOptimize for sharpness to show cellular/biological details\nInclude subtle NASA branding aesthetic (clean, modern, precise)\n\nResearch Category Visual Themes\nHuman Physiology: Medical equipment, body scans, astronaut health monitoring\nMicrogravity Effects: Floating objects, ISS modules, cellular changes\nRadiation Biology: DNA structures, protective equipment, deep space imagery\nPlant Biology: Growth chambers, LED lights, green foliage, closed ecosystems\nCell/Molecular: Microscopy, protein structures, gene visualization\nMusculoskeletal: Bone scans, exercise equipment, skeletal imagery\nCardiovascular: Heart monitoring, blood flow visualization, medical sensors\nNeurology: Brain scans, neural networks, cognitive testing\n\nCommon Pitfalls to Avoid\nGeneric stock photo aesthetics (aim for authentic NASA/ISS environment)\nOverly colorful or \"sci-fi fantasy\" style (maintain scientific realism)\nMissing biological/medical elements central to space biology\nFailing to incorporate ISS or laboratory context\nOmitting key technical parameters for scientific detail\nText that doesn't relate to the research topic\n\nThe output structure is:\n{\n  \"prompt_image\": {\n    \"prompt\": \"[Complete prompt following the guidelines above]\",\n    \"category\": \"[Research category: Microgravity, Human Physiology, Radiation, Plant Biology, etc.]\",\n    \"style_notes\": \"[Brief notes on the NASA aesthetic and scientific accuracy maintained]\"\n  }\n}"
+        }
+      },
+      "id": "6e563a28-ebef-4941-b62e-4386d925ab41",
+      "name": "Image Prompt Generator",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1216,
+        416
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cloudinary.com/v1_1/dukrtt0na/image/upload",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "upload_preset",
+              "value": "ml_default"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b3e5286d-d97e-4d96-aa38-cf0d9f172d21",
+      "name": "upload frames to cloudinary",
+      "type": "n8n-nodes-base.httpRequest",
+      "maxTries": 5,
+      "position": [
+        2496,
+        416
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "PAKf97axDZUZkgCA",
+          "name": "Unnamed credential 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const customUrl = $input.first().json.secure_url;\nconst outputJson = $('Add chartData').first().json.updatedItem\n\nconst updatedJson = outputJson.replace(\n  'featuredImage: \"/default/\"',\n  `featuredImage: \"${customUrl}\"`,\n);\n\nreturn { updatedJson };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2784,
+        416
+      ],
+      "id": "f1056133-b215-4ae5-987e-48daebaf8609",
+      "name": "Replace Image",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "Roydellano",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "NASA-Space-Apps-GIGAFLOP",
+          "mode": "name"
+        },
+        "filePath": "=src/content/news/{{ $('Title Extract').item.json.output }}-{{ Math.random() }}.md",
+        "fileContent": "={{ $json.updatedJson }}",
+        "commitMessage": "=New Article {{ $('Title Extract').item.json.output }}-{{ Math.random() }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        3008,
+        416
+      ],
+      "id": "a61c0d00-3841-4132-b950-d8f1406cc88a",
+      "name": "Upload to Github",
+      "webhookId": "2ad25b75-b69b-4338-a4b1-945919f24dbb",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "QLAOne85YN3Cs8qH",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "=google/gemini-2.5-pro",
+        "options": {
+          "maxTokens": 10000,
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -576,
+        624
+      ],
+      "id": "66c011d9-bcb3-4b2c-843e-18248a72a31e",
+      "name": "Gemini 2.5 Pro",
+      "credentials": {
+        "openRouterApi": {
+          "id": "hcD5w35I8eite6s3",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1152,
+        416
+      ],
+      "id": "44f9e578-ea82-4a05-b5dc-bc3ff1359fc2",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1712,
+        944
+      ],
+      "id": "f54d6797-56a1-4f2a-9f51-8d9bedd2ad78",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3312,
+        960
+      ],
+      "id": "638ab8b6-be5c-4052-b18f-04f4b88c02b8",
+      "name": "Wait",
+      "webhookId": "a0a1d09c-45fa-4bbc-a4fc-051e2e8839eb"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 16 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1888,
+        560
+      ],
+      "id": "d830c28e-194e-4433-91e6-f9499ec108bf",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://7b032426.nasa-space-apps-gigaflop.pages.dev/SB_publication_PMC.csv",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2224,
+        944
+      ],
+      "id": "2be9e351-c1ca-466a-a7fb-3bb8c06b8dbd",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const htmlData = $input.first().json.data;\n\n// 1. Remove HTML tags (your original code)\nconst textOnly = htmlData.replace(/<[^>]*>?/gm, \"\");\n\n// 2. Split the entire text block into an array of individual lines\nconst lines = textOnly.split('\\n');\n\n// 3. Process the array of lines\nconst cleanedLines = lines\n  .map(line => line.trim())      // Trim whitespace from the start and end of EACH line\n  .filter(line => line.length > 0); // Remove any lines that are now completely empty\n\n// 4. Join the cleaned lines back into a single string with proper newlines\nconst finalResult = cleanedLines.join('\\n');\n\nreturn [{ json: { data: finalResult } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -912,
+        416
+      ],
+      "id": "18be5f8d-a62d-4c0e-b1cd-edae3261d0d4",
+      "name": "Clean html from request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json.data;\n// Split the input into individual lines\nconst lines = data.split('\\n');\n\n// Process each line to extract the URL\nconst urls = lines\n  // Use .map to transform each line into a URL\n  .map(line => {\n    // Find the position of the last comma\n    const lastCommaIndex = line.lastIndexOf(',');\n    \n    // If a comma exists, extract the substring after it, which is the URL\n    // Otherwise, return null\n    if (lastCommaIndex !== -1) {\n      return line.substring(lastCommaIndex + 1).trim();\n    }\n    return null;\n  })\n  // Filter out any null values or lines that aren't valid URLs (like the header)\n  .filter(url => url && url.startsWith('http'));\n\n// Format the final output as requested\nreturn urls.map(url => ({ json: { url } }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2000,
+        944
+      ],
+      "id": "697a88bb-530c-44f0-a267-8b340648ff78",
+      "name": "Divide the csv"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a38bec77-d2bd-48fa-9bf8-4ffce4d4dc50",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1392,
+        416
+      ],
+      "id": "da56fb35-348a-4850-92ae-0a3b0e36fc89",
+      "name": "Set url"
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        48,
+        624
+      ],
+      "id": "ecb597cb-934e-467c-b50f-25c0d1e6c4c9",
+      "name": "Gemini 2.5 Flash2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "hcD5w35I8eite6s3",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Clean html from request').item.json.data }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Chart Data Generation Prompt for NASA Bioscience Publications\n\nYou are tasked with analyzing scientific publications and generating chartData that can be added to article YAML frontmatter. Generate ONLY the chartData section - the user will integrate it into their existing article structure.\n\n## When to Create Charts\n\nCreate charts ONLY when the publication contains:\n- Comparative data across multiple conditions/groups (e.g., pre-flight vs during vs post-flight)\n- Time-series data showing changes over duration\n- Multi-dimensional performance metrics or physiological measurements\n- Categorical comparisons of biological responses\n- Quantitative relationships between variables\n\nDO NOT create charts for:\n- Purely qualitative studies\n- Single data point findings\n- Articles without numerical comparative data\n- Purely descriptive or review-type content\n\n**For these cases, output:**\n\nchartData:\n  type: \"none\"\n  data:\n    labels:\n      - \"OSD-195 (21 DB)\"\n    datasets:\n      - label: \"Correlation\"\n  options:\n    responsive: true\n\n\n## Chart Types Available\n\nChoose the most appropriate chart type:\n- **radar**: Multi-dimensional comparisons (e.g., multiple physiological metrics across conditions)\n- **bar**: Categorical comparisons, group differences\n- **line**: Time-series data, trends over duration\n- **scatter**: Correlations, relationships between two variables\n- **pie**: Proportional data (use sparingly)\n- **doughnut**: Similar to pie, better for hierarchical data\n\n## Output Format\n\nGenerate chartData in this exact YAML format (ready to paste into frontmatter):\n\n\nchartData:\n  type: \"radar\"\n  data:\n    labels:\n      - \"Label 1\"\n      - \"Label 2\"\n      - \"Label 3\"\n    datasets:\n      - label: \"Dataset Name 1\"\n        data: [value1, value2, value3]\n        fill: true\n        backgroundColor: \"rgba(54, 162, 235, 0.25)\"\n        borderColor: \"rgba(54, 162, 235, 1)\"\n        pointBackgroundColor: \"rgba(54, 162, 235, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(54, 162, 235, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n      - label: \"Dataset Name 2\"\n        data: [value1, value2, value3]\n        fill: true\n        backgroundColor: \"rgba(255, 99, 132, 0.25)\"\n        borderColor: \"rgba(255, 99, 132, 1)\"\n        pointBackgroundColor: \"rgba(255, 99, 132, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(255, 99, 132, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n  options:\n    responsive: true\n    maintainAspectRatio: false\n    plugins:\n      legend:\n        display: true\n        position: \"top\"\n        labels:\n          color: \"#e0e7ff\"\n          font:\n            size: 14\n            weight: \"600\"\n            family: \"'Inter', system-ui, sans-serif\"\n          padding: 20\n          usePointStyle: true\n          pointStyle: \"circle\"\n      tooltip:\n        backgroundColor: \"rgba(5, 8, 20, 0.95)\"\n        titleColor: \"#f5f3ff\"\n        bodyColor: \"#c7d2fe\"\n        borderColor: \"rgba(167, 139, 250, 0.5)\"\n        borderWidth: 1\n        padding: 14\n        cornerRadius: 8\n        bodyFont:\n          size: 14\n        titleFont:\n          size: 15\n          weight: \"bold\"\n    scales:\n      r:\n        beginAtZero: true\n        max: 100\n        ticks:\n          stepSize: 20\n          color: \"#94a3b8\"\n          backdropColor: \"transparent\"\n          font:\n            size: 12\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n          lineWidth: 1\n        angleLines:\n          color: \"rgba(148, 163, 184, 0.2)\"\n          lineWidth: 1\n        pointLabels:\n          color: \"#cbd5e1\"\n          font:\n            size: 13\n            weight: \"600\"\n            family: \"'Inter', system-ui, sans-serif\"\n\n\n**Note**: For bar/line charts, replace the `scales: r:` section with:\n\n    scales:\n      x:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n          font:\n            size: 12\n      y:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n          font:\n            size: 12\n        beginAtZero: true\n\n\n## Color Palette (Cosmic Theme)\n\nUse these exact color combinations for consistency:\n\n**Dataset 1 (Blue/Cyan):**\n\nbackgroundColor: \"rgba(54, 162, 235, 0.25)\"\nborderColor: \"rgba(54, 162, 235, 1)\"\npointBackgroundColor: \"rgba(54, 162, 235, 1)\"\n\n\n**Dataset 2 (Pink/Red):**\n\nbackgroundColor: \"rgba(255, 99, 132, 0.25)\"\nborderColor: \"rgba(255, 99, 132, 1)\"\npointBackgroundColor: \"rgba(255, 99, 132, 1)\"\n\n**Dataset 3 (Teal/Green):**\n\nbackgroundColor: \"rgba(75, 192, 192, 0.25)\"\nborderColor: \"rgba(75, 192, 192, 1)\"\npointBackgroundColor: \"rgba(75, 192, 192, 1)\"\n\n\n**Dataset 4 (Purple):**\n\nbackgroundColor: \"rgba(153, 102, 255, 0.25)\"\nborderColor: \"rgba(153, 102, 255, 1)\"\npointBackgroundColor: \"rgba(153, 102, 255, 1)\"\n\n\n**Dataset 5 (Orange):**\n\nbackgroundColor: \"rgba(255, 159, 64, 0.25)\"\nborderColor: \"rgba(255, 159, 64, 1)\"\npointBackgroundColor: \"rgba(255, 159, 64, 1)\"\n\n\n**Common properties for all datasets:**\n\npointBorderColor: \"#fff\"\npointHoverBackgroundColor: \"#fff\"\npointHoverBorderColor: \"[same as borderColor]\"\nborderWidth: 3\npointRadius: 5\npointHoverRadius: 7\n\n\n## Data Extraction Guidelines\n\n1. **Identify Key Metrics**: Select 4-8 most important variables from the study\n2. **Extract Values**: Use actual values from tables, figures, or text\n3. **Normalize if Needed**: Convert to 0-100 scale or percentages if different units\n4. **Estimate When Necessary**: If exact values aren't given but trends are described, estimate reasonable values\n5. **Use Clear Labels**: Make labels concise (e.g., \"Motor Function\" not \"MF Score (%)\")\n6. **Limit Datasets**: Use 2-4 datasets maximum to avoid clutter\n\n## Examples\n\n### Example 1: Radar Chart (Multi-Dimensional Comparison)\n**Scenario**: Study comparing astronaut performance across three mission phases\n\n\nchartData:\n  type: \"radar\"\n  data:\n    labels:\n      - \"Motor Function\"\n      - \"Memory\"\n      - \"Attention\"\n      - \"Spatial Orientation\"\n      - \"Sleep Quality\"\n      - \"Reaction Time\"\n      - \"Executive Function\"\n    datasets:\n      - label: \"Pre-Flight Baseline\"\n        data: [90, 85, 88, 92, 80, 87, 89]\n        fill: true\n        backgroundColor: \"rgba(54, 162, 235, 0.25)\"\n        borderColor: \"rgba(54, 162, 235, 1)\"\n        pointBackgroundColor: \"rgba(54, 162, 235, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(54, 162, 235, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n      - label: \"During Spaceflight\"\n        data: [75, 70, 68, 60, 55, 70, 72]\n        fill: true\n        backgroundColor: \"rgba(255, 99, 132, 0.25)\"\n        borderColor: \"rgba(255, 99, 132, 1)\"\n        pointBackgroundColor: \"rgba(255, 99, 132, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(255, 99, 132, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n      - label: \"Post-Flight Recovery\"\n        data: [82, 78, 80, 75, 70, 80, 83]\n        fill: true\n        backgroundColor: \"rgba(75, 192, 192, 0.25)\"\n        borderColor: \"rgba(75, 192, 192, 1)\"\n        pointBackgroundColor: \"rgba(75, 192, 192, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(75, 192, 192, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n  options:\n    responsive: true\n    maintainAspectRatio: false\n    plugins:\n      legend:\n        display: true\n        position: \"top\"\n        labels:\n          color: \"#e0e7ff\"\n          font:\n            size: 14\n            weight: \"600\"\n            family: \"'Inter', system-ui, sans-serif\"\n          padding: 20\n          usePointStyle: true\n          pointStyle: \"circle\"\n      tooltip:\n        backgroundColor: \"rgba(5, 8, 20, 0.95)\"\n        titleColor: \"#f5f3ff\"\n        bodyColor: \"#c7d2fe\"\n        borderColor: \"rgba(167, 139, 250, 0.5)\"\n        borderWidth: 1\n        padding: 14\n        cornerRadius: 8\n    scales:\n      r:\n        beginAtZero: true\n        max: 100\n        ticks:\n          stepSize: 20\n          color: \"#94a3b8\"\n          backdropColor: \"transparent\"\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        angleLines:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        pointLabels:\n          color: \"#cbd5e1\"\n          font:\n            size: 13\n            weight: \"600\"\n\n\n### Example 2: Line Chart (Time Series)\n**Scenario**: Gene expression changes over mission duration\n\n\nchartData:\n  type: \"line\"\n  data:\n    labels:\n      - \"Day 0\"\n      - \"Day 30\"\n      - \"Day 60\"\n      - \"Day 90\"\n      - \"Day 120\"\n      - \"Day 180\"\n    datasets:\n      - label: \"Gene A Expression\"\n        data: [1.0, 1.5, 2.1, 2.4, 2.3, 2.0]\n        fill: false\n        backgroundColor: \"rgba(54, 162, 235, 0.25)\"\n        borderColor: \"rgba(54, 162, 235, 1)\"\n        pointBackgroundColor: \"rgba(54, 162, 235, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(54, 162, 235, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n        tension: 0.4\n      - label: \"Gene B Expression\"\n        data: [1.0, 0.8, 0.6, 0.5, 0.6, 0.7]\n        fill: false\n        backgroundColor: \"rgba(255, 99, 132, 0.25)\"\n        borderColor: \"rgba(255, 99, 132, 1)\"\n        pointBackgroundColor: \"rgba(255, 99, 132, 1)\"\n        pointBorderColor: \"#fff\"\n        pointHoverBackgroundColor: \"#fff\"\n        pointHoverBorderColor: \"rgba(255, 99, 132, 1)\"\n        borderWidth: 3\n        pointRadius: 5\n        pointHoverRadius: 7\n        tension: 0.4\n  options:\n    responsive: true\n    maintainAspectRatio: false\n    plugins:\n      legend:\n        display: true\n        position: \"top\"\n        labels:\n          color: \"#e0e7ff\"\n          font:\n            size: 14\n            weight: \"600\"\n          padding: 20\n          usePointStyle: true\n      tooltip:\n        backgroundColor: \"rgba(5, 8, 20, 0.95)\"\n        titleColor: \"#f5f3ff\"\n        bodyColor: \"#c7d2fe\"\n        borderColor: \"rgba(167, 139, 250, 0.5)\"\n        borderWidth: 1\n        padding: 14\n        cornerRadius: 8\n    scales:\n      x:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n      y:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n        beginAtZero: true\n        title:\n          display: true\n          text: \"Fold Change\"\n          color: \"#cbd5e1\"\n\n\n### Example 3: Bar Chart (Treatment Comparison)\n**Scenario**: Comparing effectiveness of different countermeasures\n\n\nchartData:\n  type: \"bar\"\n  data:\n    labels:\n      - \"Control\"\n      - \"Exercise\"\n      - \"Nutrition\"\n      - \"Medication\"\n      - \"Combined\"\n    datasets:\n      - label: \"Bone Density Retention (%)\"\n        data: [60, 75, 70, 80, 90]\n        backgroundColor: \"rgba(54, 162, 235, 0.7)\"\n        borderColor: \"rgba(54, 162, 235, 1)\"\n        borderWidth: 2\n      - label: \"Muscle Mass Retention (%)\"\n        data: [65, 80, 68, 72, 88]\n        backgroundColor: \"rgba(255, 99, 132, 0.7)\"\n        borderColor: \"rgba(255, 99, 132, 1)\"\n        borderWidth: 2\n  options:\n    responsive: true\n    maintainAspectRatio: false\n    plugins:\n      legend:\n        display: true\n        position: \"top\"\n        labels:\n          color: \"#e0e7ff\"\n          font:\n            size: 14\n            weight: \"600\"\n          padding: 20\n      tooltip:\n        backgroundColor: \"rgba(5, 8, 20, 0.95)\"\n        titleColor: \"#f5f3ff\"\n        bodyColor: \"#c7d2fe\"\n        borderColor: \"rgba(167, 139, 250, 0.5)\"\n        borderWidth: 1\n        padding: 14\n    scales:\n      x:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n      y:\n        grid:\n          color: \"rgba(148, 163, 184, 0.2)\"\n        ticks:\n          color: \"#cbd5e1\"\n        beginAtZero: true\n        max: 100\n        title:\n          display: true\n          text: \"Retention Rate (%)\"\n          color: \"#cbd5e1\"\n\n\n## Output Instructions\n\nWhen analyzing a publication:\n\n1. **Assess Suitability**: Determine if the data is appropriate for visualization\n2. **Select Chart Type**: Choose the best chart type for the data structure\n3. **Extract Data**: Get values from tables, figures, or estimates from text\n4. **Choose Colors**: Assign colors from the palette in order (blue, pink, teal, etc.)\n5. **Format Output**: Generate ONLY the chartData YAML block, properly indented\n6. **If No Data**: If no quantitative comparative data is available, output only:\n\n\nchartData:\n  type: \"none\"\n  data:\n    labels:\n      - \"OSD-195 (21 DB)\"\n    datasets:\n      - label: \"Correlation\"\n  options:\n    responsive: true\n\n\n## Quality Checklist\n\nBefore outputting, verify:\n- [ ] 2-4 datasets (avoid clutter)\n- [ ] 4-10 data points per dataset\n- [ ] Clear, concise labels\n- [ ] Appropriate chart type for data\n- [ ] Correct color scheme applied\n- [ ] Proper YAML indentation (2 spaces)\n- [ ] All required fields included\n- [ ] Scales configured appropriately\n\n## Important Notes\n\n- Output ONLY the chartData block\n- Start with `chartData:` (no extra --- or other YAML markers)\n- Use 2-space indentation consistently\n- Include the full options configuration\n- Always use the cosmic color palette\n- Keep labels under 20 characters when possible\n- Data values should reflect the actual findings"
+        }
+      },
+      "id": "63e48be9-901b-45ad-a69b-2cb1d4c27c3b",
+      "name": "Chart Generator",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        48,
+        416
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $(\"Code in JavaScript\").first().json.output;\nconst chartData = $input.first().json.output;\n\nconst yamlPart = item.split(\"---\")[1];\nconst textPart = item.split(\"---\")[2];\n\nconst updatedYaml = `${yamlPart}\\n${chartData}`;\n\nconst updatedItem = `---${updatedYaml}\\n---${textPart}`;\n\nreturn { updatedItem };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        432,
+        416
+      ],
+      "id": "647f46eb-6715-490f-8c02-4529bebc812f",
+      "name": "Add chartData"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Research Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Title Extract": {
+      "main": [
+        [
+          {
+            "node": "Fields - Set Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 2.5 Flash": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Title Extract",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Chart Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fields - Set Values": {
+      "main": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Clean Json": {
+      "main": [
+        [
+          {
+            "node": "Code - Get Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Get Prompt": {
+      "main": [
+        [
+          {
+            "node": "Code - Set Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Set Filename": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request - Create Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 2.5 Flash1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompt Generator": {
+      "main": [
+        [
+          {
+            "node": "Code - Clean Json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - Create Image": {
+      "main": [
+        [
+          {
+            "node": "upload frames to cloudinary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "upload frames to cloudinary": {
+      "main": [
+        [
+          {
+            "node": "Replace Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Image": {
+      "main": [
+        [
+          {
+            "node": "Upload to Github",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to Github": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 2.5 Pro": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Clean html from request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Divide the csv",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean html from request": {
+      "main": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Divide the csv": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set url": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 2.5 Flash2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Chart Generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chart Generator": {
+      "main": [
+        [
+          {
+            "node": "Add chartData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add chartData": {
+      "main": [
+        [
+          {
+            "node": "Title Extract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "65d3fdf1-bd34-4407-b057-aef0d8710277",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3ca971658e3aab16aa9203eeb75340a7d015f02c423cc54c9f8b4d93d7935e22"
+  },
+  "id": "QGNeGAurMNIGnlLu",
+  "tags": []
+}
