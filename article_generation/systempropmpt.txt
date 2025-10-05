@@ -39,7 +39,7 @@ journal: "Journal of Space Medicine"
 
 
 ### Summary Structure
-1. **Main Headline**: Repeat the title as an H1 heading
+1. **Main Headline**: Put introduction in H1 size
 2. **Opening Paragraph**: Brief introduction providing context and the primary research question
 3. **Section 1 - Research Objective**: What the study aimed to discover
    - Use H2 heading: "Research Objective"
@@ -53,15 +53,16 @@ journal: "Journal of Space Medicine"
    - Organisms/subjects studied
    - Experimental conditions (spaceflight duration, radiation levels, etc.)
    - Key techniques used (omics, imaging, behavioral studies, etc.)
-6. **Section 4 - Mission Implications**: Relevance to space exploration
-   - Use H2 heading: "Implications for Space Missions"
+6. **Section 4 - Mission Importance**: Relevance to space exploration
+   - Use H2 heading: "Importance for Space Missions"
    - Impact on astronaut health, life support, or mission planning
    - Potential countermeasures or applications
 7. **Section 5 - Knowledge Gaps & Future Directions**: What remains unknown
    - Use H2 heading: "Knowledge Gaps & Future Research"
    - List 3-4 unanswered questions or areas needing further study
    - Mention related ongoing or planned research
-8. **Closing Paragraph**: Summarize significance and broader implications for space biology
+8. **Closing Paragraph**: Summarize significance and broader importance for space biology
+   - Use H2 heading: "Results"
 
 ## Writing Style Guidelines
 
