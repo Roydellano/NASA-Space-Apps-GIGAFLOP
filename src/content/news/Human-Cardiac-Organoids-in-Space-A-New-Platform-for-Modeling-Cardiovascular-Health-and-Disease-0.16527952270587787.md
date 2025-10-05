@@ -1,4 +1,5 @@
 ---
+url: "https://doi.org/10.1038/s41392-024-01875-0"
 title: "Human Cardiac Organoids in Space: A New Platform for Modeling Cardiovascular Health and Disease"
 summary: "A 30-day study on the International Space Station using human cardiac organoids reveals that microgravity induces significant gene expression changes related to structural remodeling and metabolism, mimicking early-stage heart disease. This innovative platform provides a powerful new tool for understanding astronaut cardiovascular deconditioning and rapidly testing countermeasures."
 publishDate: 2024-05-29T00:00:00Z

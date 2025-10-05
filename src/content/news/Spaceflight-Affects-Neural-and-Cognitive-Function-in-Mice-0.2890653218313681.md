@@ -1,4 +1,5 @@
 ---
+url: "https://doi.org/10.3390/ijms22168899"
 title: "Spaceflight Affects Neural and Cognitive Function in Mice"
 summary: "A study on mice flown aboard the International Space Station reveals significant alterations in neural pathways and cognitive behaviors, particularly related to fear memory and anxiety. These findings underscore the neurological risks associated with long-duration spaceflight and highlight the need for countermeasures to protect astronaut brain health."
 publishDate: 2021-08-16T00:00:00Z

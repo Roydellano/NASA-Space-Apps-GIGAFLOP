@@ -19,7 +19,7 @@ interface Props {
 
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
-const { title, summary, publishDate, tags, readTime, priority, featuredImage } = entry.data;
+const { title, summary, publishDate, tags, readTime, priority, featuredImage, url, doi, journal, authors, chartData } = entry.data;
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('en-US', {
@@ -102,6 +102,40 @@ const relatedArticles = allNews
           <!-- Article Summary -->
           <p class="article-summary">{summary}</p>
 
+          <!-- Publication Info -->
+          <div class="publication-info">
+            {authors && authors.length > 0 && (
+              <div class="publication-field">
+                <span class="publication-label">Authors:</span>
+                <span class="publication-value">{authors.join(', ')}</span>
+              </div>
+            )}
+            {journal && (
+              <div class="publication-field">
+                <span class="publication-label">Journal:</span>
+                <span class="publication-value">{journal}</span>
+              </div>
+            )}
+            {doi && (
+              <div class="publication-field">
+                <span class="publication-label">DOI:</span>
+                <span class="publication-value">{doi}</span>
+              </div>
+            )}
+            {url && (
+              <div class="publication-field">
+                <span class="publication-label">Article URL:</span>
+                <a href={url} target="_blank" rel="noopener noreferrer" class="publication-link">
+                  {url}
+                  <svg class="external-link-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </a>
+              </div>
+            )}
+          </div>
+
           <!-- Featured Image -->
           {featuredImage && (
             <div class="featured-image-container">
@@ -123,6 +157,16 @@ const relatedArticles = allNews
         <div class="content-wrapper">
           <div class="article-body">
             <Content />
+            
+            <!-- Chart Section -->
+            {chartData && (
+              <div class="chart-section">
+                <h2 class="chart-title">Data Visualization</h2>
+                <div class="chart-container">
+                  <canvas id="article-chart"></canvas>
+                </div>
+              </div>
+            )}
             
             <!-- Article Footer -->
             <footer class="article-footer">
@@ -184,6 +228,24 @@ const relatedArticles = allNews
   </main>
 
   <Footer />
+  
+  {chartData && (
+    <>
+      <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+      <script define:vars={{ chartData }}>
+        document.addEventListener('DOMContentLoaded', function() {
+          const ctx = document.getElementById('article-chart');
+          if (ctx && typeof Chart !== 'undefined') {
+            new Chart(ctx, {
+              type: chartData.type,
+              data: chartData.data,
+              options: chartData.options || {}
+            });
+          }
+        });
+      </script>
+    </>
+  )}
 </Layout>
 
 

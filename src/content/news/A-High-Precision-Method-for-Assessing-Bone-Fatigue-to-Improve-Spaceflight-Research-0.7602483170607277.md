@@ -1,4 +1,5 @@
 ---
+url: "https://doi.org/10.1016/j.bonr.2018.10.002"
 title: "A High-Precision Method for Assessing Bone Fatigue to Improve Spaceflight Research"
 summary: "Researchers developed a novel method combining 3D-printing and computational modeling to test bone fatigue in mice with unprecedented precision. This technique reduces experimental data scatter by up to 5-fold, enhancing the statistical power of studies with small sample sizes, such as those conducted in space."
 publishDate: 2018-10-27T00:00:00Z

@@ -1,4 +1,5 @@
 ---
+url: "https://doi.org/10.1038/s42003-024-06336-w"
 title: "Tardigrade Secretory Proteins Protect Biological Structures from Desiccation"
 summary: "This study reveals that Secretory-Abundant Heat Soluble (SAHS) proteins from tardigrades protect cellular membranes and bacteria from dehydration. The proteins undergo a structural shift from a β-sheet to an α-helical state, suggesting a novel mechanism for stabilizing biologicals with significant implications for preserving materials on long-duration space missions."
 publishDate: 2024-05-25T00:00:00Z

@@ -1,8 +1,9 @@
 ---
+url: "https://doi.org/10.1104/pp.114.255943"
 title: "Dysfunctional Cell Wall Polysaccharide Causes Severe Growth Defects in Arabidopsis"
 summary: "A study on Arabidopsis mutants reveals that producing a structurally incorrect cell wall component (galactose-depleted xyloglucan) is more detrimental to plant growth than its complete absence. This finding underscores the precision required in cell wall biosynthesis for plant health, a key factor for designing resilient crops for space missions."
 publishDate: 2015-02-11T00:00:00Z
-authors: ["Kong Y", "Peña MJ", "Renna L", "Avci U", "Pattathil S", "Tuomivaara ST", "Li X", "Reiter WD", "Brandizzi F", "Hahn MG", "Darvill AG", "York WS", "O’Neill MA"]
+authors: ["Kong Y", "Peña MJ", "Renna L", "Avci U", "Pattathil S", "Tuomivaara ST", "Li X", "Reiter WD", "Brandizzi F", "Hahn MG", "Darvill AG", "York WS", "O'Neill MA"]
 tags: ["Genetics", "Microbiology", "Earth", "Technology"]
 organisms: ["Arabidopsis"]
 experimentType: "Ground Control"

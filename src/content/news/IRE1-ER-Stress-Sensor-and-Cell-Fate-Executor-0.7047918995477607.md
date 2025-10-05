@@ -1,4 +1,5 @@
 ---
+url: "https://doi.org/10.1016/j.tcb.2013.06.005"
 title: "IRE1: ER Stress Sensor and Cell Fate Executor"
 summary: "This review redefines the role of the cellular stress sensor IRE1, revealing it as a master regulator that actively decides between cell survival and programmed cell death. Under severe stress, IRE1 switches its function to degrade specific microRNAs, thereby activating pro-apoptotic proteins and executing cell death, a critical mechanism for managing cellular damage."
 publishDate: 2013-07-21T00:00:00Z

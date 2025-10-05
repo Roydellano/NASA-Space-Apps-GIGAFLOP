@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.7"
+    "astro": "^5.13.7",
+    "chart.js": "^4.5.0"
   },
   "keywords": [
     "nasa",

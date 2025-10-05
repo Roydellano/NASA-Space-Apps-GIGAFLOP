@@ -39,7 +39,7 @@ journal: "Journal of Space Medicine"
 
 
 ### Summary Structure
-1. **Main Headline**: Put introduction in H1 size
+1. **Main Headline**: Put "Introduction" in H1 size
 2. **Opening Paragraph**: Brief introduction providing context and the primary research question
 3. **Section 1 - Research Objective**: What the study aimed to discover
    - Use H2 heading: "Research Objective"
