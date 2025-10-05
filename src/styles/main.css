@@ -2333,19 +2333,49 @@ body,
     margin: 7rem 0 4rem;
   }
   
-  .brain-element,
-  .heart-element,
-  .lungs-element,
-  .digestive-element,
+  .spaceship-container {
+    max-width: 90%;
+  }
+  
+  /* Keep elements at original sizes */
+  .brain-element {
+    width: 6%;
+  }
+  
+  .heart-element {
+    width: 6%;
+  }
+  
+  .lungs-element {
+    width: 8%;
+  }
+  
+  .digestive-element {
+    width: 8%;
+  }
+  
   .body-element {
+    width: 14%;
+  }
+  
+  .body-element2 {
+    width: 14%;
+  }
+  
+  .earth-element {
     width: 15%;
   }
   
-  .earth-element,
-  .sun-element,
-  .rat-element,
+  .sun-element {
+    width: 18%;
+  }
+  
+  .rat-element {
+    width: 16%;
+  }
+  
   .plant-element {
-    width: 20%;
+    width: 17%;
   }
 }
 
@@ -2354,35 +2384,73 @@ body,
     margin: 5rem 0 3rem;
   }
   
+  .spaceship-container {
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+  
   .spaceship-element::after {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
     bottom: -2rem;
   }
   
-  /* Make elements slightly larger on mobile for easier clicking */
-  .brain-element,
-  .heart-element,
-  .lungs-element,
+  /* Keep elements proportional on tablets */
+  .brain-element {
+    width: 6%;
+  }
+  
+  .heart-element {
+    width: 6%;
+  }
+  
+  .lungs-element {
+    width: 8%;
+  }
+  
   .digestive-element {
-    width: 18%;
+    width: 8%;
   }
   
   .body-element {
-    width: 25%;
+    width: 14%;
   }
   
-  .earth-element,
-  .sun-element,
-  .rat-element,
+  .body-element2 {
+    width: 14%;
+  }
+  
+  .earth-element {
+    width: 15%;
+  }
+  
+  .sun-element {
+    width: 18%;
+  }
+  
+  .rat-element {
+    width: 16%;
+  }
+  
   .plant-element {
-    width: 22%;
+    width: 17%;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .spaceship-element:hover {
+    transform: scale(1.03);
   }
 }
 
 @media (max-width: 480px) {
   .spaceship-section {
     margin: 3rem 0 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .spaceship-container {
+    max-width: 100%;
+    padding: 0;
   }
   
   .spaceship-element:hover {
@@ -2390,7 +2458,58 @@ body,
   }
   
   .spaceship-element::after {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     padding: 0.3rem 0.6rem;
+  }
+  
+  /* Keep all elements at original proportions on mobile */
+  .brain-element {
+    width: 6%;
+  }
+  
+  .heart-element {
+    width: 6%;
+  }
+  
+  .lungs-element {
+    width: 8%;
+  }
+  
+  .digestive-element {
+    width: 8%;
+  }
+  
+  .body-element {
+    width: 14%;
+  }
+  
+  .body-element2 {
+    width: 14%;
+  }
+  
+  .earth-element {
+    width: 15%;
+  }
+  
+  .sun-element {
+    width: 18%;
+  }
+  
+  .rat-element {
+    width: 16%;
+  }
+  
+  .plant-element {
+    width: 17%;
+  }
+  
+  /* Reduce float animation on very small screens */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
   }
 }
