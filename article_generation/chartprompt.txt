@@ -1,470 +1,494 @@
-# Chart Data Generation Prompt for NASA Bioscience Publications
+    # Chart Data Generation Prompt for NASA Bioscience Publications
 
-You are tasked with analyzing scientific publications and generating chartData that can be added to article YAML frontmatter. Generate ONLY the chartData section - the user will integrate it into their existing article structure.
+    You are tasked with analyzing scientific publications and generating chartData that can be added to article YAML frontmatter. Generate ONLY the chartData section - the user will integrate it into their existing article structure.
 
-## When to Create Charts
+    ## When to Create Charts
 
-Create charts ONLY when the publication contains:
-- Comparative data across multiple conditions/groups (e.g., pre-flight vs during vs post-flight)
-- Time-series data showing changes over duration
-- Multi-dimensional performance metrics or physiological measurements
-- Categorical comparisons of biological responses
-- Quantitative relationships between variables
+    Create charts ONLY when the publication contains:
+    - Comparative data across multiple conditions/groups (e.g., pre-flight vs during vs post-flight)
+    - Time-series data showing changes over duration
+    - Multi-dimensional performance metrics or physiological measurements
+    - Categorical comparisons of biological responses
+    - Quantitative relationships between variables
 
-DO NOT create charts for:
-- Purely qualitative studies
-- Single data point findings
-- Articles without numerical comparative data
-- Purely descriptive or review-type content
+    DO NOT create charts for:
+    - Purely qualitative studies
+    - Single data point findings
+    - Articles without numerical comparative data
+    - Purely descriptive or review-type content
 
-## Chart Types Available
+    **For these cases, output:**
 
-Choose the most appropriate chart type:
-- **radar**: Multi-dimensional comparisons (e.g., multiple physiological metrics across conditions)
-- **bar**: Categorical comparisons, group differences
-- **line**: Time-series data, trends over duration
-- **scatter**: Correlations, relationships between two variables
-- **pie**: Proportional data (use sparingly)
-- **doughnut**: Similar to pie, better for hierarchical data
-
-## Output Format
-
-Generate chartData in this exact YAML format (ready to paste into frontmatter):
-
-```yaml
-chartData:
-  type: "radar"
-  data:
-    labels:
-      - "Label 1"
-      - "Label 2"
-      - "Label 3"
-    datasets:
-      - label: "Dataset Name 1"
-        data: [value1, value2, value3]
-        fill: true
-        backgroundColor: "rgba(54, 162, 235, 0.25)"
-        borderColor: "rgba(54, 162, 235, 1)"
-        pointBackgroundColor: "rgba(54, 162, 235, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(54, 162, 235, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-      - label: "Dataset Name 2"
-        data: [value1, value2, value3]
-        fill: true
-        backgroundColor: "rgba(255, 99, 132, 0.25)"
-        borderColor: "rgba(255, 99, 132, 1)"
-        pointBackgroundColor: "rgba(255, 99, 132, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(255, 99, 132, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-  options:
-    responsive: true
-    maintainAspectRatio: false
-    plugins:
-      legend:
-        display: true
-        position: "top"
+    chartData:
+    type: "none"
+    data:
         labels:
-          color: "#e0e7ff"
-          font:
-            size: 14
-            weight: "600"
-            family: "'Inter', system-ui, sans-serif"
-          padding: 20
-          usePointStyle: true
-          pointStyle: "circle"
-      tooltip:
-        backgroundColor: "rgba(5, 8, 20, 0.95)"
-        titleColor: "#f5f3ff"
-        bodyColor: "#c7d2fe"
-        borderColor: "rgba(167, 139, 250, 0.5)"
-        borderWidth: 1
-        padding: 14
-        cornerRadius: 8
-        bodyFont:
-          size: 14
-        titleFont:
-          size: 15
-          weight: "bold"
-    scales:
-      r:
-        beginAtZero: true
-        max: 100
-        ticks:
-          stepSize: 20
-          color: "#94a3b8"
-          backdropColor: "transparent"
-          font:
-            size: 12
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-          lineWidth: 1
-        angleLines:
-          color: "rgba(148, 163, 184, 0.2)"
-          lineWidth: 1
-        pointLabels:
-          color: "#cbd5e1"
-          font:
-            size: 13
-            weight: "600"
-            family: "'Inter', system-ui, sans-serif"
-```
+        - "OSD-195 (21 DB)"
+        datasets:
+        - label: "Correlation"
+    options:
+        responsive: true
 
-**Note**: For bar/line charts, replace the `scales: r:` section with:
-```yaml
-    scales:
-      x:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-          font:
-            size: 12
-      y:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-          font:
-            size: 12
-        beginAtZero: true
-```
 
-## Color Palette (Cosmic Theme)
+    ## Chart Types Available
 
-Use these exact color combinations for consistency:
+    Choose the most appropriate chart type:
+    - **radar**: Multi-dimensional comparisons (e.g., multiple physiological metrics across conditions)
+    - **bar**: Categorical comparisons, group differences
+    - **line**: Time-series data, trends over duration
+    - **scatter**: Correlations, relationships between two variables
+    - **pie**: Proportional data (use sparingly)
+    - **doughnut**: Similar to pie, better for hierarchical data
 
-**Dataset 1 (Blue/Cyan):**
-```yaml
-backgroundColor: "rgba(54, 162, 235, 0.25)"
-borderColor: "rgba(54, 162, 235, 1)"
-pointBackgroundColor: "rgba(54, 162, 235, 1)"
-```
+    ## Output Format
 
-**Dataset 2 (Pink/Red):**
-```yaml
-backgroundColor: "rgba(255, 99, 132, 0.25)"
-borderColor: "rgba(255, 99, 132, 1)"
-pointBackgroundColor: "rgba(255, 99, 132, 1)"
-```
+    Generate chartData in this exact YAML format (ready to paste into frontmatter):
 
-**Dataset 3 (Teal/Green):**
-```yaml
-backgroundColor: "rgba(75, 192, 192, 0.25)"
-borderColor: "rgba(75, 192, 192, 1)"
-pointBackgroundColor: "rgba(75, 192, 192, 1)"
-```
 
-**Dataset 4 (Purple):**
-```yaml
-backgroundColor: "rgba(153, 102, 255, 0.25)"
-borderColor: "rgba(153, 102, 255, 1)"
-pointBackgroundColor: "rgba(153, 102, 255, 1)"
-```
-
-**Dataset 5 (Orange):**
-```yaml
-backgroundColor: "rgba(255, 159, 64, 0.25)"
-borderColor: "rgba(255, 159, 64, 1)"
-pointBackgroundColor: "rgba(255, 159, 64, 1)"
-```
-
-**Common properties for all datasets:**
-```yaml
-pointBorderColor: "#fff"
-pointHoverBackgroundColor: "#fff"
-pointHoverBorderColor: "[same as borderColor]"
-borderWidth: 3
-pointRadius: 5
-pointHoverRadius: 7
-```
-
-## Data Extraction Guidelines
-
-1. **Identify Key Metrics**: Select 4-8 most important variables from the study
-2. **Extract Values**: Use actual values from tables, figures, or text
-3. **Normalize if Needed**: Convert to 0-100 scale or percentages if different units
-4. **Estimate When Necessary**: If exact values aren't given but trends are described, estimate reasonable values
-5. **Use Clear Labels**: Make labels concise (e.g., "Motor Function" not "MF Score (%)")
-6. **Limit Datasets**: Use 2-4 datasets maximum to avoid clutter
-
-## Examples
-
-### Example 1: Radar Chart (Multi-Dimensional Comparison)
-**Scenario**: Study comparing astronaut performance across three mission phases
-
-```yaml
-chartData:
-  type: "radar"
-  data:
-    labels:
-      - "Motor Function"
-      - "Memory"
-      - "Attention"
-      - "Spatial Orientation"
-      - "Sleep Quality"
-      - "Reaction Time"
-      - "Executive Function"
-    datasets:
-      - label: "Pre-Flight Baseline"
-        data: [90, 85, 88, 92, 80, 87, 89]
-        fill: true
-        backgroundColor: "rgba(54, 162, 235, 0.25)"
-        borderColor: "rgba(54, 162, 235, 1)"
-        pointBackgroundColor: "rgba(54, 162, 235, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(54, 162, 235, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-      - label: "During Spaceflight"
-        data: [75, 70, 68, 60, 55, 70, 72]
-        fill: true
-        backgroundColor: "rgba(255, 99, 132, 0.25)"
-        borderColor: "rgba(255, 99, 132, 1)"
-        pointBackgroundColor: "rgba(255, 99, 132, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(255, 99, 132, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-      - label: "Post-Flight Recovery"
-        data: [82, 78, 80, 75, 70, 80, 83]
-        fill: true
-        backgroundColor: "rgba(75, 192, 192, 0.25)"
-        borderColor: "rgba(75, 192, 192, 1)"
-        pointBackgroundColor: "rgba(75, 192, 192, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(75, 192, 192, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-  options:
-    responsive: true
-    maintainAspectRatio: false
-    plugins:
-      legend:
-        display: true
-        position: "top"
+    chartData:
+    type: "radar"
+    data:
         labels:
-          color: "#e0e7ff"
-          font:
+        - "Label 1"
+        - "Label 2"
+        - "Label 3"
+        datasets:
+        - label: "Dataset Name 1"
+            data: [value1, value2, value3]
+            fill: true
+            backgroundColor: "rgba(54, 162, 235, 0.25)"
+            borderColor: "rgba(54, 162, 235, 1)"
+            pointBackgroundColor: "rgba(54, 162, 235, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(54, 162, 235, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+        - label: "Dataset Name 2"
+            data: [value1, value2, value3]
+            fill: true
+            backgroundColor: "rgba(255, 99, 132, 0.25)"
+            borderColor: "rgba(255, 99, 132, 1)"
+            pointBackgroundColor: "rgba(255, 99, 132, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+    options:
+        responsive: true
+        maintainAspectRatio: false
+        plugins:
+        legend:
+            display: true
+            position: "top"
+            labels:
+            color: "#e0e7ff"
+            font:
+                size: 14
+                weight: "600"
+                family: "'Inter', system-ui, sans-serif"
+            padding: 20
+            usePointStyle: true
+            pointStyle: "circle"
+        tooltip:
+            backgroundColor: "rgba(5, 8, 20, 0.95)"
+            titleColor: "#f5f3ff"
+            bodyColor: "#c7d2fe"
+            borderColor: "rgba(167, 139, 250, 0.5)"
+            borderWidth: 1
+            padding: 14
+            cornerRadius: 8
+            bodyFont:
             size: 14
-            weight: "600"
-            family: "'Inter', system-ui, sans-serif"
-          padding: 20
-          usePointStyle: true
-          pointStyle: "circle"
-      tooltip:
-        backgroundColor: "rgba(5, 8, 20, 0.95)"
-        titleColor: "#f5f3ff"
-        bodyColor: "#c7d2fe"
-        borderColor: "rgba(167, 139, 250, 0.5)"
-        borderWidth: 1
-        padding: 14
-        cornerRadius: 8
-    scales:
-      r:
-        beginAtZero: true
-        max: 100
-        ticks:
-          stepSize: 20
-          color: "#94a3b8"
-          backdropColor: "transparent"
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        angleLines:
-          color: "rgba(148, 163, 184, 0.2)"
-        pointLabels:
-          color: "#cbd5e1"
-          font:
-            size: 13
-            weight: "600"
-```
+            titleFont:
+            size: 15
+            weight: "bold"
+        scales:
+        r:
+            beginAtZero: true
+            max: 100
+            ticks:
+            stepSize: 20
+            color: "#94a3b8"
+            backdropColor: "transparent"
+            font:
+                size: 12
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            lineWidth: 1
+            angleLines:
+            color: "rgba(148, 163, 184, 0.2)"
+            lineWidth: 1
+            pointLabels:
+            color: "#cbd5e1"
+            font:
+                size: 13
+                weight: "600"
+                family: "'Inter', system-ui, sans-serif"
 
-### Example 2: Line Chart (Time Series)
-**Scenario**: Gene expression changes over mission duration
 
-```yaml
-chartData:
-  type: "line"
-  data:
-    labels:
-      - "Day 0"
-      - "Day 30"
-      - "Day 60"
-      - "Day 90"
-      - "Day 120"
-      - "Day 180"
-    datasets:
-      - label: "Gene A Expression"
-        data: [1.0, 1.5, 2.1, 2.4, 2.3, 2.0]
-        fill: false
-        backgroundColor: "rgba(54, 162, 235, 0.25)"
-        borderColor: "rgba(54, 162, 235, 1)"
-        pointBackgroundColor: "rgba(54, 162, 235, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(54, 162, 235, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-        tension: 0.4
-      - label: "Gene B Expression"
-        data: [1.0, 0.8, 0.6, 0.5, 0.6, 0.7]
-        fill: false
-        backgroundColor: "rgba(255, 99, 132, 0.25)"
-        borderColor: "rgba(255, 99, 132, 1)"
-        pointBackgroundColor: "rgba(255, 99, 132, 1)"
-        pointBorderColor: "#fff"
-        pointHoverBackgroundColor: "#fff"
-        pointHoverBorderColor: "rgba(255, 99, 132, 1)"
-        borderWidth: 3
-        pointRadius: 5
-        pointHoverRadius: 7
-        tension: 0.4
-  options:
-    responsive: true
-    maintainAspectRatio: false
-    plugins:
-      legend:
-        display: true
-        position: "top"
+    **Note**: For bar/line charts, replace the `scales: r:` section with:
+
+        scales:
+        x:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+            font:
+                size: 12
+        y:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+            font:
+                size: 12
+            beginAtZero: true
+
+
+    ## Color Palette (Cosmic Theme)
+
+    Use these exact color combinations for consistency:
+
+    **Dataset 1 (Blue/Cyan):**
+
+    backgroundColor: "rgba(54, 162, 235, 0.25)"
+    borderColor: "rgba(54, 162, 235, 1)"
+    pointBackgroundColor: "rgba(54, 162, 235, 1)"
+
+
+    **Dataset 2 (Pink/Red):**
+
+    backgroundColor: "rgba(255, 99, 132, 0.25)"
+    borderColor: "rgba(255, 99, 132, 1)"
+    pointBackgroundColor: "rgba(255, 99, 132, 1)"
+
+    **Dataset 3 (Teal/Green):**
+
+    backgroundColor: "rgba(75, 192, 192, 0.25)"
+    borderColor: "rgba(75, 192, 192, 1)"
+    pointBackgroundColor: "rgba(75, 192, 192, 1)"
+
+
+    **Dataset 4 (Purple):**
+
+    backgroundColor: "rgba(153, 102, 255, 0.25)"
+    borderColor: "rgba(153, 102, 255, 1)"
+    pointBackgroundColor: "rgba(153, 102, 255, 1)"
+
+
+    **Dataset 5 (Orange):**
+
+    backgroundColor: "rgba(255, 159, 64, 0.25)"
+    borderColor: "rgba(255, 159, 64, 1)"
+    pointBackgroundColor: "rgba(255, 159, 64, 1)"
+
+
+    **Common properties for all datasets:**
+
+    pointBorderColor: "#fff"
+    pointHoverBackgroundColor: "#fff"
+    pointHoverBorderColor: "[same as borderColor]"
+    borderWidth: 3
+    pointRadius: 5
+    pointHoverRadius: 7
+
+
+    ## Data Extraction Guidelines
+
+    1. **Identify Key Metrics**: Select 4-8 most important variables from the study
+    2. **Extract Values**: Use actual values from tables, figures, or text
+    3. **Normalize if Needed**: Convert to 0-100 scale or percentages if different units
+    4. **Estimate When Necessary**: If exact values aren't given but trends are described, estimate reasonable values
+    5. **Use Clear Labels**: Make labels concise (e.g., "Motor Function" not "MF Score (%)")
+    6. **Limit Datasets**: Use 2-4 datasets maximum to avoid clutter
+
+    ## Examples
+
+    ### Example 1: Radar Chart (Multi-Dimensional Comparison)
+    **Scenario**: Study comparing astronaut performance across three mission phases
+
+
+    chartData:
+    type: "radar"
+    data:
         labels:
-          color: "#e0e7ff"
-          font:
-            size: 14
-            weight: "600"
-          padding: 20
-          usePointStyle: true
-      tooltip:
-        backgroundColor: "rgba(5, 8, 20, 0.95)"
-        titleColor: "#f5f3ff"
-        bodyColor: "#c7d2fe"
-        borderColor: "rgba(167, 139, 250, 0.5)"
-        borderWidth: 1
-        padding: 14
-        cornerRadius: 8
-    scales:
-      x:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-      y:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-        beginAtZero: true
-        title:
-          display: true
-          text: "Fold Change"
-          color: "#cbd5e1"
-```
+        - "Motor Function"
+        - "Memory"
+        - "Attention"
+        - "Spatial Orientation"
+        - "Sleep Quality"
+        - "Reaction Time"
+        - "Executive Function"
+        datasets:
+        - label: "Pre-Flight Baseline"
+            data: [90, 85, 88, 92, 80, 87, 89]
+            fill: true
+            backgroundColor: "rgba(54, 162, 235, 0.25)"
+            borderColor: "rgba(54, 162, 235, 1)"
+            pointBackgroundColor: "rgba(54, 162, 235, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(54, 162, 235, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+        - label: "During Spaceflight"
+            data: [75, 70, 68, 60, 55, 70, 72]
+            fill: true
+            backgroundColor: "rgba(255, 99, 132, 0.25)"
+            borderColor: "rgba(255, 99, 132, 1)"
+            pointBackgroundColor: "rgba(255, 99, 132, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+        - label: "Post-Flight Recovery"
+            data: [82, 78, 80, 75, 70, 80, 83]
+            fill: true
+            backgroundColor: "rgba(75, 192, 192, 0.25)"
+            borderColor: "rgba(75, 192, 192, 1)"
+            pointBackgroundColor: "rgba(75, 192, 192, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(75, 192, 192, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+    options:
+        responsive: true
+        maintainAspectRatio: false
+        plugins:
+        legend:
+            display: true
+            position: "top"
+            labels:
+            color: "#e0e7ff"
+            font:
+                size: 14
+                weight: "600"
+                family: "'Inter', system-ui, sans-serif"
+            padding: 20
+            usePointStyle: true
+            pointStyle: "circle"
+        tooltip:
+            backgroundColor: "rgba(5, 8, 20, 0.95)"
+            titleColor: "#f5f3ff"
+            bodyColor: "#c7d2fe"
+            borderColor: "rgba(167, 139, 250, 0.5)"
+            borderWidth: 1
+            padding: 14
+            cornerRadius: 8
+        scales:
+        r:
+            beginAtZero: true
+            max: 100
+            ticks:
+            stepSize: 20
+            color: "#94a3b8"
+            backdropColor: "transparent"
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            angleLines:
+            color: "rgba(148, 163, 184, 0.2)"
+            pointLabels:
+            color: "#cbd5e1"
+            font:
+                size: 13
+                weight: "600"
 
-### Example 3: Bar Chart (Treatment Comparison)
-**Scenario**: Comparing effectiveness of different countermeasures
 
-```yaml
-chartData:
-  type: "bar"
-  data:
-    labels:
-      - "Control"
-      - "Exercise"
-      - "Nutrition"
-      - "Medication"
-      - "Combined"
-    datasets:
-      - label: "Bone Density Retention (%)"
-        data: [60, 75, 70, 80, 90]
-        backgroundColor: "rgba(54, 162, 235, 0.7)"
-        borderColor: "rgba(54, 162, 235, 1)"
-        borderWidth: 2
-      - label: "Muscle Mass Retention (%)"
-        data: [65, 80, 68, 72, 88]
-        backgroundColor: "rgba(255, 99, 132, 0.7)"
-        borderColor: "rgba(255, 99, 132, 1)"
-        borderWidth: 2
-  options:
-    responsive: true
-    maintainAspectRatio: false
-    plugins:
-      legend:
-        display: true
-        position: "top"
+    ### Example 2: Line Chart (Time Series)
+    **Scenario**: Gene expression changes over mission duration
+
+
+    chartData:
+    type: "line"
+    data:
         labels:
-          color: "#e0e7ff"
-          font:
-            size: 14
-            weight: "600"
-          padding: 20
-      tooltip:
-        backgroundColor: "rgba(5, 8, 20, 0.95)"
-        titleColor: "#f5f3ff"
-        bodyColor: "#c7d2fe"
-        borderColor: "rgba(167, 139, 250, 0.5)"
-        borderWidth: 1
-        padding: 14
-    scales:
-      x:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-      y:
-        grid:
-          color: "rgba(148, 163, 184, 0.2)"
-        ticks:
-          color: "#cbd5e1"
-        beginAtZero: true
-        max: 100
-        title:
-          display: true
-          text: "Retention Rate (%)"
-          color: "#cbd5e1"
-```
+        - "Day 0"
+        - "Day 30"
+        - "Day 60"
+        - "Day 90"
+        - "Day 120"
+        - "Day 180"
+        datasets:
+        - label: "Gene A Expression"
+            data: [1.0, 1.5, 2.1, 2.4, 2.3, 2.0]
+            fill: false
+            backgroundColor: "rgba(54, 162, 235, 0.25)"
+            borderColor: "rgba(54, 162, 235, 1)"
+            pointBackgroundColor: "rgba(54, 162, 235, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(54, 162, 235, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+            tension: 0.4
+        - label: "Gene B Expression"
+            data: [1.0, 0.8, 0.6, 0.5, 0.6, 0.7]
+            fill: false
+            backgroundColor: "rgba(255, 99, 132, 0.25)"
+            borderColor: "rgba(255, 99, 132, 1)"
+            pointBackgroundColor: "rgba(255, 99, 132, 1)"
+            pointBorderColor: "#fff"
+            pointHoverBackgroundColor: "#fff"
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)"
+            borderWidth: 3
+            pointRadius: 5
+            pointHoverRadius: 7
+            tension: 0.4
+    options:
+        responsive: true
+        maintainAspectRatio: false
+        plugins:
+        legend:
+            display: true
+            position: "top"
+            labels:
+            color: "#e0e7ff"
+            font:
+                size: 14
+                weight: "600"
+            padding: 20
+            usePointStyle: true
+        tooltip:
+            backgroundColor: "rgba(5, 8, 20, 0.95)"
+            titleColor: "#f5f3ff"
+            bodyColor: "#c7d2fe"
+            borderColor: "rgba(167, 139, 250, 0.5)"
+            borderWidth: 1
+            padding: 14
+            cornerRadius: 8
+        scales:
+        x:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+        y:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+            beginAtZero: true
+            title:
+            display: true
+            text: "Fold Change"
+            color: "#cbd5e1"
 
-## Output Instructions
 
-When analyzing a publication:
+    ### Example 3: Bar Chart (Treatment Comparison)
+    **Scenario**: Comparing effectiveness of different countermeasures
 
-1. **Assess Suitability**: Determine if the data is appropriate for visualization
-2. **Select Chart Type**: Choose the best chart type for the data structure
-3. **Extract Data**: Get values from tables, figures, or estimates from text
-4. **Choose Colors**: Assign colors from the palette in order (blue, pink, teal, etc.)
-5. **Format Output**: Generate ONLY the chartData YAML block, properly indented
-6. **Include Comment**: If no chart is appropriate, respond with: "No chartData - insufficient quantitative comparative data"
 
-## Quality Checklist
+    chartData:
+    type: "bar"
+    data:
+        labels:
+        - "Control"
+        - "Exercise"
+        - "Nutrition"
+        - "Medication"
+        - "Combined"
+        datasets:
+        - label: "Bone Density Retention (%)"
+            data: [60, 75, 70, 80, 90]
+            backgroundColor: "rgba(54, 162, 235, 0.7)"
+            borderColor: "rgba(54, 162, 235, 1)"
+            borderWidth: 2
+        - label: "Muscle Mass Retention (%)"
+            data: [65, 80, 68, 72, 88]
+            backgroundColor: "rgba(255, 99, 132, 0.7)"
+            borderColor: "rgba(255, 99, 132, 1)"
+            borderWidth: 2
+    options:
+        responsive: true
+        maintainAspectRatio: false
+        plugins:
+        legend:
+            display: true
+            position: "top"
+            labels:
+            color: "#e0e7ff"
+            font:
+                size: 14
+                weight: "600"
+            padding: 20
+        tooltip:
+            backgroundColor: "rgba(5, 8, 20, 0.95)"
+            titleColor: "#f5f3ff"
+            bodyColor: "#c7d2fe"
+            borderColor: "rgba(167, 139, 250, 0.5)"
+            borderWidth: 1
+            padding: 14
+        scales:
+        x:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+        y:
+            grid:
+            color: "rgba(148, 163, 184, 0.2)"
+            ticks:
+            color: "#cbd5e1"
+            beginAtZero: true
+            max: 100
+            title:
+            display: true
+            text: "Retention Rate (%)"
+            color: "#cbd5e1"
 
-Before outputting, verify:
-- [ ] 2-4 datasets (avoid clutter)
-- [ ] 4-10 data points per dataset
-- [ ] Clear, concise labels
-- [ ] Appropriate chart type for data
-- [ ] Correct color scheme applied
-- [ ] Proper YAML indentation (2 spaces)
-- [ ] All required fields included
-- [ ] Scales configured appropriately
 
-## Important Notes
+    ## Output Instructions
 
-- Output ONLY the chartData block
-- Start with `chartData:` (no extra --- or other YAML markers)
-- Use 2-space indentation consistently
-- Include the full options configuration
-- Always use the cosmic color palette
-- Keep labels under 20 characters when possible
-- Data values should reflect the actual findings
+    When analyzing a publication:
+
+    1. **Assess Suitability**: Determine if the data is appropriate for visualization
+    2. **Select Chart Type**: Choose the best chart type for the data structure
+    3. **Extract Data**: Get values from tables, figures, or estimates from text
+    4. **Choose Colors**: Assign colors from the palette in order (blue, pink, teal, etc.)
+    5. **Format Output**: Generate ONLY the chartData YAML block, properly indented
+    6. **If No Data**: If no quantitative comparative data is available, output only:
+
+
+    chartData:
+    type: "none"
+    data:
+        labels:
+        - "OSD-195 (21 DB)"
+        datasets:
+        - label: "Correlation"
+    options:
+        responsive: true
+
+
+    ## Quality Checklist
+
+    Before outputting, verify:
+    - [ ] 2-4 datasets (avoid clutter)
+    - [ ] 4-10 data points per dataset
+    - [ ] Clear, concise labels
+    - [ ] Appropriate chart type for data
+    - [ ] Correct color scheme applied
+    - [ ] Proper YAML indentation (2 spaces)
+    - [ ] All required fields included
+    - [ ] Scales configured appropriately
+
+    ## Important Notes
+
+    - Output ONLY the chartData block
+    - Start with `chartData:` (no extra --- or other YAML markers)
+    - Use 2-space indentation consistently
+    - Include the full options configuration
+    - Always use the cosmic color palette
+    - Keep labels under 20 characters when possible
+    - Data values should reflect the actual findings

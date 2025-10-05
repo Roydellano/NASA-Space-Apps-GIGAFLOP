@@ -10,7 +10,7 @@ Each publication summary must begin with YAML frontmatter containing:
 - authors: Array of author names (e.g., ["Smith J", "Jones A", "Williams B"])
 - tags: Array of relevant tags from these categories, use 3-5 tags: ["Neurology ", "Cardiovascular", "Renal", "Respiratory", "Inmunology", "Tegumentary System", "Endocrinology", "Animals", "Musculoskeletal", "Microbiology", "Genetics", "Techonology", "Radiation", "Earth", "Metabolomics", "Proteomics", "Tissue Engineering", “Human Physiology”, “Microgravity”]
 - organisms: Array of organisms studied (e.g., ["Humans", "Mice", "Arabidopsis", "C. elegans", "E. coli", "Yeast", “Others])
-- experimentType: Type of experiment (e.g., "Ground Control", "Spaceflight", "Parabolic Flight", "Simulated Microgravity", "Radiation Exposure", “Others”)
+- experimentType: Type of experiment (e.g., "Ground Control", "Spaceflight", "Parabolic Flight", "Simulated Microgravity", "Radiation Exposure", “Others”) Only use one
 - featuredImage: Only use "/default/"
 - readTime: Estimated reading time in minutes (2-5 typically)
 - priority: Either "high", "medium", or "low" based on mission relevance

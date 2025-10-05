@@ -5,7 +5,7 @@ publishDate: 2024-04-26T00:00:00Z
 authors: ["Adamopoulos KI", "Sanders LM", "Costes SV"]
 tags: ["Genetics", "Musculoskeletal", "Microgravity", "Human Physiology", "Animals"]
 organisms: ["Humans", "Mice"]
-experimentType: ["Spaceflight", "Simulated Microgravity"]
+experimentType: "Spaceflight"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759652284/ynbfjs3t1kk30sxedt4j.jpg"
 readTime: 4
 priority: "high"

@@ -159,7 +159,7 @@ const relatedArticles = allNews
             <Content />
             
             <!-- Chart Section -->
-            {chartData && (
+            {chartData && chartData.type !== 'none' && (
               <div class="chart-section">
                 <h2 class="chart-title">Data Visualization</h2>
                 <div class="chart-container">
@@ -229,7 +229,7 @@ const relatedArticles = allNews
 
   <Footer />
   
-  {chartData && (
+  {chartData && chartData.type !== 'none' && (
     <>
       <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
       <script define:vars={{ chartData }}>
