@@ -1,7 +1,9 @@
 # 🚀 BioNauta - NASA Bioscience Publications Explorer
 
-> **NASA Space Apps Challenge 2024 Project**  
+> **NASA Space Apps Challenge 2025 Hackathon Project**  
 > An AI-powered web application for exploring and analyzing NASA's 608 bioscience publications
+
+**🌐 Live Site**: [https://bionautica.us/](https://bionautica.us/)
 
 ## 🎯 Project Objectives
 
@@ -103,8 +105,8 @@ See LICENSE file for details.
 
 ## 🚧 Development Status
 
-BioNauta is in active development for NASA Space Apps Challenge 2024. The AI-powered summaries are automatically generated and should be verified against original publications for critical mission planning decisions.
+BioNauta is in active development for NASA Space Apps Challenge 2025 Hackathon. The AI-powered summaries are automatically generated and should be verified against original publications for critical mission planning decisions.
 
 ---
 
-**Built for NASA Space Apps Challenge 2024** 🌍🚀🌙
+**Built for NASA Space Apps Challenge 2025 Hackathon** 🌍🚀🌙
