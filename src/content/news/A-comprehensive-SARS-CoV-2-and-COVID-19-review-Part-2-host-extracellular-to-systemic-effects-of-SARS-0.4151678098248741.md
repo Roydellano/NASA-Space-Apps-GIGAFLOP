@@ -3,7 +3,7 @@ title: "A comprehensive SARS-CoV-2 and COVID-19 review, Part 2: host extracellul
 summary: "This comprehensive review synthesizes evidence on the multi-organ, systemic effects of SARS-CoV-2 infection, detailing how the virus disrupts whole-body metabolism, dysregulates the immune and endocrine systems, and leads to widespread organ damage. These findings are crucial for understanding both acute COVID-19 and its long-term sequelae (PASC), with implications for managing astronaut health during space missions."
 publishDate: 2023-11-08T00:00:00Z
 authors: ["Narayanan SA", "Jamison DA Jr", "Guarnieri JW", "Zaksas V", "Topper M", "Koutnik AP", "Park J", "Clark KB", "Enguita FJ", "Leitão AL", "Das S", "Moraes-Vieira PM", "Galeano D", "Mason CE", "Trovão NS", "Schwartz RE", "Schisler JC", "Coelho-dos-Reis JGA", "Wurtele ES", "Beheshti A"]
-tags: ["Immunology", "Human Physiology", "Cardiovascular", "Neurology", "Metabolomics", "Digestive"]
+tags: ["Immunology", "Human Physiology", "Cardiovascular", "Neurology", "Metabolomics", "Digestive", "Respiratory"]
 organisms: ["Humans"]
 experimentType: "Others"
 featuredImage: "https://res.cloudinary.com/dukrtt0na/image/upload/v1759680370/qqscnl4hlihdehpxgply.jpg"
