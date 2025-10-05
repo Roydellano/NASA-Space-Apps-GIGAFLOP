@@ -8,15 +8,14 @@ Each publication summary must begin with YAML frontmatter containing:
 - summary: A concise 2-3 sentence overview highlighting the key finding and significance (use quotes)
 - publishDate: Publication date in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ) - use actual publication date
 - authors: Array of author names (e.g., ["Smith J", "Jones A", "Williams B"])
-- tags: Array of relevant tags from these categories, use 3-6 tags: ["Microgravity", "Radiation Biology", "Plant Biology", "Cell Biology", "Molecular Biology", "Human Physiology", "Space Medicine", "Astrobiology", "Genetics", "Neuroscience", "Bone Density", "Muscle Atrophy", "Cardiovascular", "Immunology", "Metabolomics", "Proteomics", "Gene Expression", "Tissue Engineering", "Life Support Systems", "Closed Ecosystems"]
-- organisms: Array of organisms studied (e.g., ["Humans", "Mice", "Arabidopsis", "C. elegans", "E. coli", "Yeast"])
-- experimentType: Type of experiment (e.g., "Ground Control", "Spaceflight", "Parabolic Flight", "Simulated Microgravity", "Radiation Exposure")
+- tags: Array of relevant tags from these categories, use 3-6 tags: ["Neurology ", "Cardiovascular", "Renal", "Respiratory", "Inmunology", "Tegumentary System", "Endocrinology", "Animals", "Musculoskeletal", "Microbiology", "Genetics", "Techonology", "Radiation", "Earth", "Metabolomics", "Proteomics", "Tissue Engineering", “Human Physiology”, “Microgravity”]
+- organisms: Array of organisms studied (e.g., ["Humans", "Mice", "Arabidopsis", "C. elegans", "E. coli", "Yeast", “Others])
+- experimentType: Type of experiment (e.g., "Ground Control", "Spaceflight", "Parabolic Flight", "Simulated Microgravity", "Radiation Exposure", “Others”)
 - featuredImage: Only use "/default/"
-- readTime: Estimated reading time in minutes (2-4 typically)
+- readTime: Estimated reading time in minutes (2-5 typically)
 - priority: Either "high", "medium", or "low" based on mission relevance
 - consensusLevel: One of ["high", "medium", "low", "controversial"] - indicates scientific agreement
 - knowledgeGaps: Array of identified research gaps or unanswered questions (2-4 items)
-- nasaMissionRelated: String indicating relevant NASA missions (e.g., "ISS", "Artemis", "Mars Mission", "Gateway")
 - doi: Digital Object Identifier if available
 - journal: Publication journal name
 
@@ -26,7 +25,7 @@ title: "Long-term Microgravity Exposure Induces Significant Bone Density Loss in
 summary: "12-month ISS study reveals 1.5% monthly bone density loss in astronauts, with recovery taking 2-3 years post-flight. Findings critical for long-duration Mars missions and highlight need for advanced countermeasures."
 publishDate: 2023-06-15T14:30:00Z
 authors: ["Smith JK", "Anderson M", "Lee S", "Rodriguez C"]
-tags: ["Bone Density", "Microgravity", "Human Physiology", "Space Medicine", "ISS Research"]
+tags: ["Musculoskeletal", "Microgravity", "Human Physiology”]
 organisms: ["Humans"]
 experimentType: "Spaceflight"
 featuredImage: "/default/"
@@ -34,10 +33,10 @@ readTime: 3
 priority: "high"
 consensusLevel: "high"
 knowledgeGaps: ["Optimal exercise regimen for bone preservation", "Long-term recovery mechanisms", "Genetic factors in susceptibility", "Pharmaceutical interventions effectiveness"]
-nasaMissionRelated: "Artemis, Mars Mission"
 doi: "10.1000/example.2023.12345"
 journal: "Journal of Space Medicine"
 ---
+
 
 ### Summary Structure
 1. **Main Headline**: Repeat the title as an H1 heading
@@ -57,7 +56,6 @@ journal: "Journal of Space Medicine"
 6. **Section 4 - Mission Implications**: Relevance to space exploration
    - Use H2 heading: "Implications for Space Missions"
    - Impact on astronaut health, life support, or mission planning
-   - Relevance to specific NASA missions (ISS, Artemis, Mars)
    - Potential countermeasures or applications
 7. **Section 5 - Knowledge Gaps & Future Directions**: What remains unknown
    - Use H2 heading: "Knowledge Gaps & Future Research"
@@ -80,7 +78,7 @@ journal: "Journal of Space Medicine"
 - Use specific numbers, percentages, measurements, and statistical data
 - Include organism names, experiment durations, and methodological details
 - Cite specific findings with quantitative support
-- Reference NASA missions and practical applications
+- Reference practical applications
 - Identify areas of scientific consensus or controversy
 - Explicitly note knowledge gaps and future research needs
 - Focus on biological insights relevant to space exploration
